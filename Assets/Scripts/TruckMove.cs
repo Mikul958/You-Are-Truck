@@ -29,9 +29,7 @@ public class TruckMove : MonoBehaviour
     public float airtimeTurnMultiplier;  // Handling multiplier applied when the vehicle is in the air.
 
     // Instance variables
-    private float currentSpeed;         // Each frame, the truck moves along the facing vector, controlled by the rigidBody.
     private float currentSpeedCap;      // Tracks the current effective speed cap
-    private Vector3 currentDirection;   // Unit vector representing the direction of engine speed;
     private int forwardInputSign;       // 1 = forwards, -1 = backwards, 0 = neutral
     private int sidewaysInputSign;      // -1 = left, 1 = right, 0 = neutral
     private float airtime;
@@ -39,25 +37,36 @@ public class TruckMove : MonoBehaviour
     private float oilTimer;
     private float nailTimer;
 
+    private float currentSpeed;
+    private Vector3 currentDirection;
+
     // LIFECYCLE FUNCTIONS
     void Start()
     {
-        currentSpeed = 0;
         currentSpeedCap = topBaseSpeed;
-        currentDirection = rigidBody.rotation * Vector3.forward;
+        forwardInputSign = 0;
+        sidewaysInputSign = 0;
         airtime = 0;
         boostTimer = 0;
         oilTimer = 0;
         nailTimer = 0;
 
+        rigidBody.linearVelocity = Vector3.zero;
+        rigidBody.linearDamping = 0;
         rigidBody.sleepThreshold = 0f;  // Make it so Rigid Body doesn't fall asleep
     }
 
     void Update()
     {
         getPlayerInputs();
+    }
+
+    void FixedUpdate()
+    {
+        
+        
         calculateVelocityUpdates();
-        updateTimersAndCap();
+        // updateTimersAndCap();
     }
 
     private void getPlayerInputs()
@@ -79,17 +88,24 @@ public class TruckMove : MonoBehaviour
 
     private void calculateVelocityUpdates()
     {
+        // Read current direction and engine speed from the RigidBody
+        currentDirection = rigidBody.rotation * Vector3.forward;
+        currentSpeed = Vector3.Dot(rigidBody.linearVelocity, currentDirection);
+
+        // Apply velocity updates
         calculateSpeedUpdates();
-        calculateDirectionUpdates();
-        applyVelocityUpdates();
+        Debug.Log("Speed = " + rigidBody.linearVelocity);
+        // calculateDirectionUpdates();
+        
     }
 
     private void calculateSpeedUpdates()
     {
-        int speedSign = currentSpeed >= 0 ? 1 : -1;
+        int speedSign = 0;
+        if (Math.Abs(currentSpeed) > 0.001)
+            speedSign = currentSpeed > 0 ? 1 : -1;
         if (airtime < airtimeThreshold && Math.Abs(currentSpeed) <= currentSpeedCap)
         {
-            Debug.Log("Can accel");
             if (boostTimer > 0)
                 updateSpeedBoost();
             else
@@ -97,52 +113,78 @@ public class TruckMove : MonoBehaviour
         }
         else if (Math.Abs(currentSpeed) > currentSpeedCap)
         {
-            ReduceSpeedToCap(speedSign);
+            reduceSpeedToCap(speedSign);
         }
     }
 
     private void updateSpeedBoost()
     {
-        currentSpeed += boostAccel;
-        if (currentSpeed > currentSpeedCap)
-            currentSpeed = currentSpeedCap;
+        // Add boost velocity in current forward direction
+        rigidBody.linearVelocity += boostAccel * currentDirection * Time.fixedDeltaTime;
+
+        // Read in updated forward velocity and cap it
+        float updatedSpeed = Vector3.Dot(rigidBody.linearVelocity, currentDirection);
+        if (updatedSpeed > currentSpeedCap)
+            rigidBody.linearVelocity -= (updatedSpeed - currentSpeedCap) * currentDirection;
     }
 
     private void updateSpeedBase(int speedSign)
-    {   
+    {
         // If holding neutral, apply neutral decel and exit
         if (forwardInputSign == 0)
         {
-            currentSpeed *= baseDecelMultiplier * Time.deltaTime;
-            int updatedSpeedSign = currentSpeed >= 0 ? 1 : -1;
-            if (speedSign != updatedSpeedSign)
-                currentSpeed = 0;
+            float engineDecay = currentSpeed * (1 - baseDecelMultiplier) * Time.fixedDeltaTime;
+            rigidBody.linearVelocity -= engineDecay * currentDirection;
+            Debug.Log("Neutral, speed = " + rigidBody.linearVelocity);
             return;
         }
 
-        // Else, apply vehicle accel / brake decel in appropriate direction up to cap
-        if (forwardInputSign == speedSign)
-            currentSpeed += forwardInputSign * baseAccel * Time.deltaTime;
+        if (forwardInputSign == 1)
+        {
+            rigidBody.linearVelocity += baseAccel * currentDirection * Time.fixedDeltaTime;
+            Debug.Log("Accelerating, speed = " + rigidBody.linearVelocity);
+        }
         else
-            currentSpeed += forwardInputSign * brakeDecel * Time.deltaTime;
-        Math.Clamp(currentSpeed, -currentSpeedCap, currentSpeedCap);
+        {
+            rigidBody.linearVelocity -= baseAccel * currentDirection * Time.fixedDeltaTime;
+            Debug.Log("Applying brake, speed = " + rigidBody.linearVelocity);
+        }
+
+        /*
+        // Else, apply vehicle accel / brake decel in appropriate direction up to cap
+        if (speedSign == 0 || forwardInputSign == speedSign)
+        {
+            rigidBody.linearVelocity += baseAccel * currentDirection * forwardInputSign * Time.fixedDeltaTime;
+            Debug.Log("Accelerating, speed = " + Vector3.Dot(rigidBody.linearVelocity, currentDirection));
+        }
+        else
+        {
+            rigidBody.linearVelocity -= brakeDecel * currentDirection * speedSign * Time.fixedDeltaTime;
+            Debug.Log("Applying brake, speed = " + Vector3.Dot(rigidBody.linearVelocity, currentDirection));
+        }
+
+        // Apply hard cap to speed in engine direction
+        float updatedSpeed = Vector3.Dot(rigidBody.linearVelocity, currentDirection);
+        if (Math.Abs(updatedSpeed) > currentSpeedCap)
+        {
+            Debug.Log("Speed cap hit, current speed: " + updatedSpeed);
+            rigidBody.linearVelocity -= (updatedSpeed - speedSign * currentSpeedCap) * currentDirection;
+        }
+        */
     }
     
-    private void ReduceSpeedToCap(int speedSign)
+    private void reduceSpeedToCap(int speedSign)
     {
-        currentSpeed += -speedSign * brakeDecel * Time.deltaTime;
-        if (Math.Abs(currentSpeed) < currentSpeedCap)
-            currentSpeed = speedSign * currentSpeedCap;
+        /*
+        engineSpeed += -speedSign * brakeDecel * Time.deltaTime;
+        if (Math.Abs(engineSpeed) < currentSpeedCap)
+            engineSpeed = speedSign * currentSpeedCap;
+        */
     }
 
     private void calculateDirectionUpdates()
     {
         // TODO
-    }
-
-    private void applyVelocityUpdates()
-    {
-        rigidBody.AddForce(currentSpeed * currentDirection, ForceMode.VelocityChange);
     }
 
     private void updateTimersAndCap()
