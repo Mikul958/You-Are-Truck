@@ -741,7 +741,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508304631}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 629af1b3831fc5d4f81b8df65fd11e04, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -773,13 +773,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rigidBody: {fileID: 1508304632}
-  topBaseSpeed: 100
+  topEngineSpeed: 100
   boostSpeedCapMultiplier: 1.5
   nailSpeedCapMultiplier: 0.6
+  globalSpeedCap: 120
   baseAccel: 20
   boostAccel: 60
-  baseDecelMultiplier: 0.95
   brakeDecel: 40
+  engineDecelMultiplier: 0.9
+  externalBodyDecel: 3
+  externalWheelDecel: 7
+  externalDecelMultiplier: 0.99
   minTurnSpeed: 0
   maxTurnSpeed: 0
   minTurnThreshold: 0
@@ -825,7 +829,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911796449}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 84315c43c61991e40859b3961b4aeefd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
