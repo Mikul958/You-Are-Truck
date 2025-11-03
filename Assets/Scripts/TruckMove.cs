@@ -133,7 +133,7 @@ public class TruckMove : MonoBehaviour
         if (Math.Abs(engineSpeed + engineSpeedDelta) <= currentEngineCap)
             engineSpeed += engineSpeedDelta;
         else if (Math.Abs(engineSpeed) < currentEngineCap)
-            engineSpeed += currentEngineCap * speedSign - engineSpeed;
+            engineSpeed += speedSign * currentEngineCap - engineSpeed;
         
         speedSign = engineSpeed > 0 ? 1 : -1;
         if (Math.Abs(engineSpeed) < 0.001)
@@ -202,7 +202,7 @@ public class TruckMove : MonoBehaviour
 
         // Apply hard cap to speed in engine direction
         if (Math.Abs(engineSpeed) > currentEngineCap)
-            engineSpeed = currentEngineCap;
+            engineSpeed = speedSign * currentEngineCap;
     }
 
     private void softCapEngineSpeed()
