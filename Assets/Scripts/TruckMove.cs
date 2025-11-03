@@ -9,9 +9,9 @@ public class TruckMove : MonoBehaviour
 
     // Truck constants, set in editor
     [Header("Speed Caps")]
-    public float topEngineSpeed;           // Maximum forward base speed (m/s)
-    public float boostSpeedCapMultiplier;  // Maximum forward speed when boost is active (m/s)
-    public float nailSpeedCapMultiplier;   // Maximum forward speed when nail penalty is active (m/s)
+    public float topEngineSpeed;           // Default maximum engine speed (m/s)
+    public float boostSpeedCapMultiplier;  // Maximum engine speed multiplier when boost is active (multiplier)
+    public float nailSpeedCapMultiplier;   // Maximum engine speed multiplier when nail penalty is active (multiplier)
     public float globalSpeedCap;           // Maximum speed cap in all directions (m/s)
 
     [Header("Acceleration")]
@@ -24,19 +24,19 @@ public class TruckMove : MonoBehaviour
     public float externalDecelMultiplier;  // Deceleration applied to external velocity each update (multiplier/tick)
 
     [Header("Handling Rotation")]
-    public float minRotationSpeed;       // Lower rotation speed bound (deg/sec)
-    public float maxRotationSpeed;       // Upper rotation speed bound (deg/sec)
-    public float minTurnThreshold;       // The minimum moving speed for the truck to be able to turn (m/s)
-    public float maxTurnThreshold;       // The moving speed at which the rotation speed reaches its max (m/s)
+    public float minRotationSpeed;  // Lower rotation speed bound (deg/sec)
+    public float maxRotationSpeed;  // Upper rotation speed bound (deg/sec)
+    public float minTurnThreshold;  // The minimum moving speed for the truck to be able to turn (m/s)
+    public float maxTurnThreshold;  // The moving speed at which the rotation speed reaches its max (m/s)
 
     [Header("Airtime Effects")]
     public float airtimeThreshold;       // After airtime crosses this threshold, jumps are ignored and handling is significantly reduced (s)
     public float airtimeTurnMultiplier;  // Handling multiplier applied when the vehicle is in the air (multiplier)
 
-    [Header("Timer Lengths")]
-    public float boostDuration;
-    public float oilDuration;
-    public float nailDuration;
+    [Header("Effect Durations")]
+    public float boostDuration;  // Duration of boost applied when a boost panel is touched
+    public float oilDuration;    // Duration of slipperiness applied when an oil slick is touched
+    public float nailDuration;   // Duration of nail penalty applied when a nail pile is touched
 
     // Instance variables
 
@@ -51,13 +51,13 @@ public class TruckMove : MonoBehaviour
     private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
     // Important vehicle signs
-    private int forwardInputSign;       // 0 = neutral, 1 = forwards, -1 = backwards
-    private int sidewaysInputSign;      // 0 = neutral, -1 = left, 1 = right
-    private int speedSign;              // 0 = engineSpeed near zero, otherwise matches sign of engineSpeed
+    private int forwardInputSign;   // 0 = neutral, 1 = forwards, -1 = backwards
+    private int sidewaysInputSign;  // 0 = neutral, -1 = left, 1 = right
+    private int speedSign;          // 0 = engineSpeed near zero, otherwise matches sign of engineSpeed
 
     // Vehicle state
-    private float currentSpeedCap;      // Current effective speed cap (m/s)
-    private bool wheelsGrounded;        // Whether or not wheels are touching the floor, used to determine how much external velocity to dampen
+    private float currentEngineCap; // Current effective speed cap (m/s)
+    private bool wheelsGrounded;    // Whether or not wheels are touching the floor, used to determine how much external velocity to dampen
     private float airtime;
     private float boostTimer;
     private float oilTimer;
@@ -69,6 +69,7 @@ public class TruckMove : MonoBehaviour
     void Start()
     {
         facingDirection = rigidBody.rotation * Vector3.forward;
+        floorNormal = rigidBody.rotation * Vector3.up;
         engineDirection = facingDirection;
         engineSpeed = 0;
         externalVelocity = Vector3.zero;
@@ -80,7 +81,8 @@ public class TruckMove : MonoBehaviour
         sidewaysInputSign = 0;
         speedSign = 0;
 
-        currentSpeedCap = topEngineSpeed;
+        currentEngineCap = topEngineSpeed;
+        wheelsGrounded = false;
         airtime = 0;
         boostTimer = 0;
         oilTimer = 0;
@@ -128,10 +130,10 @@ public class TruckMove : MonoBehaviour
 
         // Add portion of delta facing along engine direction to engine speed, disallowing any velocity additions over cap
         float engineSpeedDelta = Vector3.Dot(physicsDelta, engineDirection);
-        if (Math.Abs(engineSpeed + engineSpeedDelta) <= currentSpeedCap)
+        if (Math.Abs(engineSpeed + engineSpeedDelta) <= currentEngineCap)
             engineSpeed += engineSpeedDelta;
-        else if (Math.Abs(engineSpeed) < currentSpeedCap)
-            engineSpeed += currentSpeedCap * speedSign - engineSpeed;
+        else if (Math.Abs(engineSpeed) < currentEngineCap)
+            engineSpeed += currentEngineCap * speedSign - engineSpeed;
         
         speedSign = engineSpeed > 0 ? 1 : -1;
         if (Math.Abs(engineSpeed) < 0.001)
@@ -161,14 +163,14 @@ public class TruckMove : MonoBehaviour
 
     private void calculateSpeedUpdates()
     {
-        if (airtime == 0 && Math.Abs(engineSpeed) <= currentSpeedCap)
+        if (airtime == 0 && Math.Abs(engineSpeed) <= currentEngineCap)
         {
             if (boostTimer > 0)
                 updateEngineSpeedBoost();
             else
                 updateEngineSpeed();
         }
-        else if (Math.Abs(engineSpeed) > currentSpeedCap)
+        else if (Math.Abs(engineSpeed) > currentEngineCap)
         {
             softCapEngineSpeed();
         }
@@ -179,8 +181,8 @@ public class TruckMove : MonoBehaviour
     {
         // Add boost velocity in current forward direction, disallowing addition over cap
         engineSpeed += boostAccel * Time.fixedDeltaTime;
-        if (engineSpeed > currentSpeedCap)
-            engineSpeed = currentSpeedCap;
+        if (engineSpeed > currentEngineCap)
+            engineSpeed = currentEngineCap;
     }
 
     private void updateEngineSpeed()
@@ -199,16 +201,16 @@ public class TruckMove : MonoBehaviour
             engineSpeed -= brakeDecel * speedSign * Time.fixedDeltaTime;
 
         // Apply hard cap to speed in engine direction
-        if (Math.Abs(engineSpeed) > currentSpeedCap)
-            engineSpeed = currentSpeedCap;
+        if (Math.Abs(engineSpeed) > currentEngineCap)
+            engineSpeed = currentEngineCap;
     }
 
     private void softCapEngineSpeed()
     {
-        if (Math.Abs(engineSpeed) > currentSpeedCap + brakeDecel * Time.fixedDeltaTime)
+        if (Math.Abs(engineSpeed) > currentEngineCap + brakeDecel * Time.fixedDeltaTime)
             engineSpeed -= brakeDecel * speedSign * Time.fixedDeltaTime;
         else
-            engineSpeed -= engineSpeed - speedSign * currentSpeedCap;
+            engineSpeed -= engineSpeed - speedSign * currentEngineCap;
     }
 
     private void dampenExternalVelocity()
@@ -291,11 +293,11 @@ public class TruckMove : MonoBehaviour
             nailTimer = 0;
 
         // Check state and update engine speed cap
-        currentSpeedCap = topEngineSpeed;
+        currentEngineCap = topEngineSpeed;
         if (boostTimer > 0)
-            currentSpeedCap *= boostSpeedCapMultiplier;
+            currentEngineCap *= boostSpeedCapMultiplier;
         if (nailTimer > 0)
-            currentSpeedCap *= nailSpeedCapMultiplier;
+            currentEngineCap *= nailSpeedCapMultiplier;
     }
 
     // CALLBACK FUNCTIONS -- Functions intended to be called by external Components or Game Objects
