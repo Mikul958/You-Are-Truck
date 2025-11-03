@@ -20,7 +20,20 @@ public class TruckCollide : MonoBehaviour
 
     void OnCollisionStay(Collision collision)
     {
-        truckMove.resetAirtime(); // TODO has to collide with floor collision, do wheel decay stuff
+        // TODO need to figure out how to only do this with wheels touching, need to overhaul collision checks entirely before progressing
+        truckMove.resetAirtime();
+
+        int contactPoints = 0;
+        Vector3 combinedNormal = Vector3.zero;
+        foreach (ContactPoint contactPoint in collision.contacts)
+        {
+            contactPoints++;
+            combinedNormal += contactPoint.normal;
+        }
+
+        if (contactPoints > 0)
+            truckMove.updateFloorNormal(combinedNormal.normalized);
+
 
         if (collision.collider.gameObject.CompareTag("boost"))
         {

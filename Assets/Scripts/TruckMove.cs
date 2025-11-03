@@ -34,21 +34,24 @@ public class TruckMove : MonoBehaviour
     public float airtimeTurnMultiplier;  // Handling multiplier applied when the vehicle is in the air (multiplier)
 
     [Header("Timer Lengths")]
-    public float appliedBoostTime;
-    public float appliedOilTime;
-    public float appliedNailTime;
+    public float boostDuration;
+    public float oilDuration;
+    public float nailDuration;
 
     // Instance variables
 
     // Current velocity values
-    private Vector3 currentFacingDirection;
-    private Vector3 currentEngineVelocity;
-    private float currentEngineSpeed;           // Signed scalar, positive = forwards, negative = backwards
-    private Vector3 currentExternalVelocity;    // TODO implement handling for external velocity including vector decomposition
-    private float currentExternalSpeed;         // Unsigned scalar, magnitude of currentExternalVelocity
+    private Vector3 facingDirection;   // Facing direction of the vehicle at any time
+    private Vector3 floorNormal;       // Cumulative normal of all "floor type" colliders being touched by wheels
+    private Vector3 engineDirection;   // Direction of engine velocity, only updated when on the ground
+    private float engineSpeed;         // Signed scalar, positive = forwards, negative = backwards
+    private Vector3 externalVelocity;  // Sum of all external velocity sources
+    private float externalSpeed;       // Unsigned scalar, magnitude of externalVelocity
+    private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
+    private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
     // Important vehicle signs
-    private int forwardInputSign;       // 0 = neutral1 = forwards, -1 = backwards
+    private int forwardInputSign;       // 0 = neutral, 1 = forwards, -1 = backwards
     private int sidewaysInputSign;      // 0 = neutral, -1 = left, 1 = right
     private int speedSign;              // 0 = engineSpeed near zero, otherwise matches sign of engineSpeed
 
@@ -61,18 +64,29 @@ public class TruckMove : MonoBehaviour
     private float nailTimer;
 
     // LIFECYCLE FUNCTIONS
+
+    // Initialization
     void Start()
     {
+        facingDirection = rigidBody.rotation * Vector3.forward;
+        engineDirection = facingDirection;
+        engineSpeed = 0;
+        externalVelocity = Vector3.zero;
+        externalSpeed = 0;
+        appliedVelocity = Vector3.zero;
+        physicsDelta = Vector3.zero;
+
+        forwardInputSign = 0;
+        sidewaysInputSign = 0;
+        speedSign = 0;
+
         currentSpeedCap = topEngineSpeed;
         airtime = 0;
         boostTimer = 0;
         oilTimer = 0;
         nailTimer = 0;
 
-        forwardInputSign = 0;
-        sidewaysInputSign = 0;
-
-        rigidBody.linearVelocity = Vector3.zero;
+        rigidBody.linearVelocity = appliedVelocity;
         rigidBody.sleepThreshold = 0f;
     }
 
@@ -85,7 +99,8 @@ public class TruckMove : MonoBehaviour
     // Updates that occur each time the physics engine ticks
     void FixedUpdate()
     {
-        calculateVelocityUpdates();
+        readPhysicsDeltas();
+        runVelocityUpdates();
         updateTimersAndEngineCap();
     }
 
@@ -104,137 +119,161 @@ public class TruckMove : MonoBehaviour
             sidewaysInputSign++;
     }
 
-    private void calculateVelocityUpdates()
+    private void readPhysicsDeltas()
+    {
+        // TODO need to figure out how to apply angular dampening on floor normal axis and flip vehicle roll to match normal
+        
+        // Isolate velocity applied by Unity's physics on this tick
+        physicsDelta = rigidBody.linearVelocity - appliedVelocity;
+
+        // Add portion of delta facing along engine direction to engine speed, disallowing any velocity additions over cap
+        float engineSpeedDelta = Vector3.Dot(physicsDelta, engineDirection);
+        if (Math.Abs(engineSpeed + engineSpeedDelta) <= currentSpeedCap)
+            engineSpeed += engineSpeedDelta;
+        else if (Math.Abs(engineSpeed) < currentSpeedCap)
+            engineSpeed += currentSpeedCap * speedSign - engineSpeed;
+        
+        speedSign = engineSpeed > 0 ? 1 : -1;
+        if (Math.Abs(engineSpeed) < 0.001)
+            speedSign = 0;
+
+        // Add portion of delta orthogonal to engine direction to external velocity and update cached speed
+        Vector3 externalVelocityDelta = physicsDelta - Vector3.Project(physicsDelta, engineDirection);
+        externalVelocity += externalVelocityDelta;
+        externalSpeed = externalVelocity.magnitude;
+
+        // Safeguard, these values should not be used again until velocity updates are complete
+        appliedVelocity = Vector3.zero;
+        physicsDelta = Vector3.zero;
+    }
+
+    private void runVelocityUpdates()
     {
         // Read current direction and engine speed from the RigidBody
-        currentFacingDirection = rigidBody.rotation * Vector3.forward;
-        currentEngineVelocity = Vector3.Project(rigidBody.linearVelocity, currentFacingDirection);
-        currentEngineSpeed = Vector3.Dot(rigidBody.linearVelocity, currentFacingDirection);
-        currentExternalVelocity = rigidBody.linearVelocity - currentEngineVelocity;
-        currentExternalSpeed = currentExternalVelocity.magnitude;
+        facingDirection = rigidBody.rotation * Vector3.forward;
+        engineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;  // TODO test and see if any easing is necessary
 
-        speedSign = 0;
-        if (Math.Abs(currentEngineSpeed) > 0.001)
-            speedSign = currentEngineSpeed > 0 ? 1 : -1;
-
-        // Debug.Log("Current Engine Speed = " + currentEngineSpeed + ", Current Airtime = " + airtime + ", Boost Timer = " + boostTimer);
-        // Debug.Log("Current Global Speed = " + rigidBody.linearVelocity.magnitude);
-        // Debug.Log("Current vertical speed = " + Vector3.Dot(rigidBody.linearVelocity, Vector3.up));
-
-        // Apply velocity updates
+        // Calculate velocityUpdates and apply to rigidBody
         calculateSpeedUpdates();
         calculateHandlingUpdates();
-        applyGlobalSpeedCap();
+        applyCappedVelocityUpdates();
     }
 
     private void calculateSpeedUpdates()
     {
-        if (airtime <= Time.fixedDeltaTime && Math.Abs(currentEngineSpeed) <= currentSpeedCap)
+        if (airtime == 0 && Math.Abs(engineSpeed) <= currentSpeedCap)
         {
             if (boostTimer > 0)
-                updateSpeedBoost();
+                updateEngineSpeedBoost();
             else
-                updateSpeedBase();
+                updateEngineSpeed();
         }
-        else if (Math.Abs(currentEngineSpeed) > currentSpeedCap)
+        else if (Math.Abs(engineSpeed) > currentSpeedCap)
         {
             softCapEngineSpeed();
         }
         dampenExternalVelocity();
     }
 
-    private void updateSpeedBoost()
+    private void updateEngineSpeedBoost()
     {
-        // Add boost velocity in current forward direction
-        rigidBody.linearVelocity += boostAccel * currentFacingDirection * Time.fixedDeltaTime;
-
-        // Read in updated forward velocity and cap it
-        float updatedSpeed = Vector3.Dot(rigidBody.linearVelocity, currentFacingDirection);
-        if (updatedSpeed > currentSpeedCap)
-            rigidBody.linearVelocity -= (updatedSpeed - currentSpeedCap) * currentFacingDirection;
+        // Add boost velocity in current forward direction, disallowing addition over cap
+        engineSpeed += boostAccel * Time.fixedDeltaTime;
+        if (engineSpeed > currentSpeedCap)
+            engineSpeed = currentSpeedCap;
     }
 
-    private void updateSpeedBase()
+    private void updateEngineSpeed()
     {
         // If holding neutral, apply neutral decel and exit
         if (forwardInputSign == 0)
         {
-            float engineDecay = currentEngineSpeed * (1 - neutralDecelMultiplier);
-            rigidBody.linearVelocity -= engineDecay * currentFacingDirection;
+            engineSpeed *= neutralDecelMultiplier;
             return;
         }
 
         // Else, apply vehicle accel / brake decel in appropriate direction up to cap
         if (speedSign == 0 || forwardInputSign == speedSign)
-            rigidBody.linearVelocity += baseAccel * currentFacingDirection * forwardInputSign * Time.fixedDeltaTime;
+            engineSpeed += baseAccel * forwardInputSign * Time.fixedDeltaTime;
         else
-            rigidBody.linearVelocity -= brakeDecel * currentFacingDirection * speedSign * Time.fixedDeltaTime;
+            engineSpeed -= brakeDecel * speedSign * Time.fixedDeltaTime;
 
         // Apply hard cap to speed in engine direction
-        float updatedSpeed = Vector3.Dot(rigidBody.linearVelocity, currentFacingDirection);
-        if (Math.Abs(updatedSpeed) > currentSpeedCap)
-            rigidBody.linearVelocity -= (updatedSpeed - speedSign * currentSpeedCap) * currentFacingDirection;
+        if (Math.Abs(engineSpeed) > currentSpeedCap)
+            engineSpeed = currentSpeedCap;
     }
 
     private void softCapEngineSpeed()
     {
-        if (Math.Abs(currentEngineSpeed) > currentSpeedCap + brakeDecel * Time.fixedDeltaTime)
-            rigidBody.linearVelocity -= brakeDecel * currentFacingDirection * speedSign * Time.fixedDeltaTime;
+        if (Math.Abs(engineSpeed) > currentSpeedCap + brakeDecel * Time.fixedDeltaTime)
+            engineSpeed -= brakeDecel * speedSign * Time.fixedDeltaTime;
         else
-            rigidBody.linearVelocity -= (currentEngineSpeed - speedSign * currentSpeedCap) * currentFacingDirection;
+            engineSpeed -= engineSpeed - speedSign * currentSpeedCap;
     }
 
     private void dampenExternalVelocity()
     {
         // Calculate base exponential decay and additional body/wheel decel if necessary
-        float externalVelocityDecay = currentExternalSpeed * (1 - externalDecelMultiplier);
+        float externalVelocityDecay = externalSpeed * (1 - externalDecelMultiplier);
         if (airtime == 0)
         {
-            externalVelocityDecay += externalBodyDecel * Time.fixedDeltaTime;
             if (wheelsGrounded)
-                externalVelocityDecay += (externalWheelDecel - externalBodyDecel) * Time.fixedDeltaTime;
+                externalVelocityDecay += externalWheelDecel * Time.fixedDeltaTime;
+            else
+                externalVelocityDecay += externalBodyDecel * Time.fixedDeltaTime;
         }
 
         // If decay exceeds the current speed, zero out external velocity
-        if (externalVelocityDecay > currentExternalSpeed)
-            externalVelocityDecay = currentExternalSpeed;
-
-        rigidBody.linearVelocity -= externalVelocityDecay * Vector3.Normalize(currentExternalVelocity);
+        if (externalVelocityDecay > externalSpeed)
+            externalVelocityDecay = externalSpeed;
+        externalVelocity -= externalVelocityDecay * Vector3.Normalize(externalVelocity);
     }
 
     private void calculateHandlingUpdates()
     {
         // Don't turn if sideways input is neutral or the current engine speed is less than the threshold
-        if (sidewaysInputSign == 0 || Math.Abs(currentEngineSpeed) < minTurnThreshold)
+        if (sidewaysInputSign == 0 || Math.Abs(engineSpeed) < minTurnThreshold)
             return;
 
         // Calculate turn angle based on engine speed
         float turnAngle;
-        if (Math.Abs(currentEngineSpeed) >= maxTurnThreshold)
+        if (Math.Abs(engineSpeed) >= maxTurnThreshold)
             turnAngle = maxRotationSpeed * sidewaysInputSign * speedSign * Time.fixedDeltaTime;
         else
-            turnAngle = ((Math.Abs(currentEngineSpeed) - minTurnThreshold) * (maxRotationSpeed - minRotationSpeed) / (maxTurnThreshold - minTurnThreshold) + minRotationSpeed)
+            turnAngle = ((Math.Abs(engineSpeed) - minTurnThreshold) * (maxRotationSpeed - minRotationSpeed) / (maxTurnThreshold - minTurnThreshold) + minRotationSpeed)
                 * sidewaysInputSign * speedSign * Time.fixedDeltaTime;
 
         // Apply airtime turn multiplier if player is in the air
         if (airtime > airtimeThreshold)
             turnAngle *= airtimeTurnMultiplier;
 
-        // Apply rotation to rigidBody and its linear velocity
-        Quaternion turnOffset = Quaternion.Euler(0f, turnAngle, 0f);
-        rigidBody.MoveRotation(rigidBody.rotation * turnOffset);
+        // Apply rotation to rigidBody based on its local up vector
+        Quaternion vehicleRotationOffset = Quaternion.Euler(0f, turnAngle, 0f);
+        rigidBody.MoveRotation(rigidBody.rotation * vehicleRotationOffset);
 
-        // Apply rotation to engine velocity, TODO reork this so systems update velocity members rather than having to derive again.
-        Vector3 updatedEngineVelocity = Vector3.Project(rigidBody.linearVelocity, currentFacingDirection);
-        rigidBody.linearVelocity -= updatedEngineVelocity;
-        rigidBody.linearVelocity += turnOffset * updatedEngineVelocity;
+        // Apply rotation to engine velocity based on calculated floor normal
+        Quaternion engineRotationOffset = Quaternion.AngleAxis(turnAngle, floorNormal);
+        engineDirection = engineRotationOffset * engineDirection;
+
+        // Apply rotation around global up vector to horizontal component only of external velocity
+        Quaternion externalRotationOffset = Quaternion.AngleAxis(turnAngle, Vector3.up);
+        Vector3 verticalExternalVelocity = Vector3.Project(externalVelocity, Vector3.up);
+        Vector3 horizontalExternalVelocity = externalVelocity - verticalExternalVelocity;
+
+        horizontalExternalVelocity = externalRotationOffset * horizontalExternalVelocity;
+        externalVelocity = verticalExternalVelocity + horizontalExternalVelocity;
     }
 
-    private void applyGlobalSpeedCap()
+    private void applyCappedVelocityUpdates()
     {
-        float currentGlobalSpeed = rigidBody.linearVelocity.magnitude;
-        if (currentGlobalSpeed > globalSpeedCap)
-            rigidBody.linearVelocity *= globalSpeedCap / currentGlobalSpeed;
+        // Calculate applied velocity for this tick and cap if needed
+        appliedVelocity = engineSpeed * engineDirection + externalVelocity;
+        float newSpeed = appliedVelocity.magnitude;
+        if (newSpeed > globalSpeedCap)
+            appliedVelocity *= globalSpeedCap / newSpeed;
+
+        // Set velocity of rigidBody to appliedVelocity (physics updates have already been incorporated into component vectors)
+        rigidBody.linearVelocity = appliedVelocity;
     }
 
     private void updateTimersAndEngineCap()
@@ -260,6 +299,10 @@ public class TruckMove : MonoBehaviour
     }
 
     // CALLBACK FUNCTIONS -- Functions intended to be called by external Components or Game Objects
+    public void updateFloorNormal(Vector3 normal)
+    {
+        floorNormal = normal;
+    }
     public void resetAirtime()
     {
         airtime = 0;
@@ -267,6 +310,6 @@ public class TruckMove : MonoBehaviour
 
     public void applyBoost()
     {
-        boostTimer = appliedBoostTime;
+        boostTimer = boostDuration;
     }
 }
