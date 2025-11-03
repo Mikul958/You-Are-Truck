@@ -779,15 +779,15 @@ MonoBehaviour:
   globalSpeedCap: 120
   baseAccel: 20
   boostAccel: 60
-  brakeDecel: 40
-  engineDecelMultiplier: 0.9
-  externalBodyDecel: 3
-  externalWheelDecel: 7
+  brakeDecel: 50
+  engineDecelMultiplier: 0.99
+  externalBodyDecel: 30
+  externalWheelDecel: 70
   externalDecelMultiplier: 0.99
-  minTurnSpeed: 0
-  maxTurnSpeed: 0
-  minTurnThreshold: 0
-  maxTurnThreshold: 0
+  minRotationSpeed: 2
+  maxRotationSpeed: 60
+  minTurnThreshold: 2
+  maxTurnThreshold: 40
   airtimeThreshold: 0.2
   airtimeTurnMultiplier: 0.1
 --- !u!114 &1508304636
