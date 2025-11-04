@@ -63,6 +63,10 @@ public class TruckMove : MonoBehaviour
     private float oilTimer;
     private float nailTimer;
 
+    // Additional private constants
+    private const float zeroEngineSpeed = 0.001f;
+    private const float zeroVectorMagnitude = 1e-6f;
+
     // LIFECYCLE FUNCTIONS
 
     // Initialization
@@ -101,9 +105,10 @@ public class TruckMove : MonoBehaviour
     // Updates that occur each time the physics engine ticks
     void FixedUpdate()
     {
-        readPhysicsDeltas();
+        processPhysicsDeltas();
         runVelocityUpdates();
         updateTimersAndEngineCap();
+        Debug.Log("Engine direction: " + engineDirection);
     }
 
     private void readPlayerInputs()
@@ -121,7 +126,7 @@ public class TruckMove : MonoBehaviour
             sidewaysInputSign++;
     }
 
-    private void readPhysicsDeltas()
+    private void processPhysicsDeltas()
     {
         // TODO need to figure out how to apply angular dampening on floor normal axis and flip vehicle roll to match normal
         
@@ -136,7 +141,7 @@ public class TruckMove : MonoBehaviour
             engineSpeed += speedSign * currentEngineCap - engineSpeed;
         
         speedSign = engineSpeed > 0 ? 1 : -1;
-        if (Math.Abs(engineSpeed) < 0.001)
+        if (Math.Abs(engineSpeed) < zeroEngineSpeed)
             speedSign = 0;
 
         // Add portion of delta orthogonal to engine direction to external velocity and update cached speed
@@ -147,15 +152,21 @@ public class TruckMove : MonoBehaviour
         // Safeguard, these values should not be used again until velocity updates are complete
         appliedVelocity = Vector3.zero;
         physicsDelta = Vector3.zero;
+
+        // Update facing directions using rigidBody rotation
+        facingDirection = rigidBody.rotation * Vector3.forward;
+        if (airtime == 0)
+        {
+            Vector3 targetEngineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;
+            if (targetEngineDirection.magnitude > zeroVectorMagnitude)
+                engineDirection = targetEngineDirection;  // TODO test and see if any easing is necessary
+        }
+
+        // TODO ensure horizontal external velocity does not flip if truck drives upside-down
     }
 
     private void runVelocityUpdates()
     {
-        // Read current direction and engine speed from the RigidBody
-        facingDirection = rigidBody.rotation * Vector3.forward;
-        engineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;  // TODO test and see if any easing is necessary
-
-        // Calculate velocityUpdates and apply to rigidBody
         calculateSpeedUpdates();
         calculateHandlingUpdates();
         applyCappedVelocityUpdates();
