@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 53827908}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: boost
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 161894539}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: boost
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,13 +427,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: -30}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1508304637}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,7 +910,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 05a9d4f04e707fb4bad60a781d54ec9b, type: 3}
     - {fileID: -8700617353114198275, guid: 05a9d4f04e707fb4bad60a781d54ec9b, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 05a9d4f04e707fb4bad60a781d54ec9b, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 330585546}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 05a9d4f04e707fb4bad60a781d54ec9b, type: 3}
       insertIndex: -1
@@ -939,7 +942,7 @@ GameObject:
   - component: {fileID: 879537595}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: boost
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1066,7 +1069,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!65 &1508304633
 BoxCollider:
@@ -1117,6 +1120,7 @@ MonoBehaviour:
   maxRotationSpeed: 60
   minTurnThreshold: 2
   maxTurnThreshold: 40
+  groundAlignmentSpeed: 90
   airtimeThreshold: 0.2
   airtimeTurnMultiplier: 0.1
   boostDuration: 1
@@ -1135,6 +1139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   truckMove: {fileID: 1508304635}
+--- !u!4 &1508304637 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 05a9d4f04e707fb4bad60a781d54ec9b, type: 3}
+  m_PrefabInstance: {fileID: 857830393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1879822805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1158,7 @@ GameObject:
   - component: {fileID: 1879822806}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: boost
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1363,7 +1372,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 330585546}
   - {fileID: 857830393}
   - {fileID: 1911796453}
   - {fileID: 879537598}

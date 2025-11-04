@@ -29,6 +29,9 @@ public class TruckMove : MonoBehaviour
     public float minTurnThreshold;  // The minimum moving speed for the truck to be able to turn (m/s)
     public float maxTurnThreshold;  // The moving speed at which the rotation speed reaches its max (m/s)
 
+    [Header("Miscellaneous Physics")]
+    public float groundAlignmentSpeed;  // How fast the vehicle attempts to realign itself while touching the ground (deg/sec)
+
     [Header("Airtime Effects")]
     public float airtimeThreshold;       // After airtime crosses this threshold, jumps are ignored and handling is significantly reduced (s)
     public float airtimeTurnMultiplier;  // Handling multiplier applied when the vehicle is in the air (multiplier)
@@ -65,7 +68,7 @@ public class TruckMove : MonoBehaviour
 
     // Additional private constants
     private const float zeroEngineSpeed = 0.001f;
-    private const float zeroVectorMagnitude = 1e-6f;
+    private const float zeroThreshold = 1e-6f;
 
     // LIFECYCLE FUNCTIONS
 
@@ -108,7 +111,7 @@ public class TruckMove : MonoBehaviour
         processPhysicsDeltas();
         runVelocityUpdates();
         updateTimersAndEngineCap();
-        Debug.Log("Engine direction: " + engineDirection);
+        Debug.Log("Engine speed: " + engineSpeed);
     }
 
     private void readPlayerInputs()
@@ -153,13 +156,23 @@ public class TruckMove : MonoBehaviour
         appliedVelocity = Vector3.zero;
         physicsDelta = Vector3.zero;
 
-        // Update facing directions using rigidBody rotation
+        // Update facing directions and roll using rigidBody rotation and floor normal
         facingDirection = rigidBody.rotation * Vector3.forward;
         if (airtime == 0)
         {
+            // Update engine direction to match facing direction along plane of floor normal
             Vector3 targetEngineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;
-            if (targetEngineDirection.magnitude > zeroVectorMagnitude)
-                engineDirection = targetEngineDirection;  // TODO test and see if any easing is necessary
+            if (targetEngineDirection.magnitude > zeroThreshold)
+                engineDirection = targetEngineDirection;
+        }
+
+        // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
+        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);
+        float angleOffset = Quaternion.Angle(rigidBody.rotation, targetRotation);
+        if (angleOffset > zeroThreshold)
+        {
+            float angleRatio = Mathf.Clamp01(groundAlignmentSpeed / angleOffset * Time.fixedDeltaTime);
+            rigidBody.MoveRotation(Quaternion.Slerp(rigidBody.rotation, targetRotation, angleRatio));
         }
 
         // TODO ensure horizontal external velocity does not flip if truck drives upside-down
