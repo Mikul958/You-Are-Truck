@@ -164,10 +164,12 @@ public class TruckMove : MonoBehaviour
             Vector3 targetEngineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;
             if (targetEngineDirection.magnitude > zeroThreshold)
                 engineDirection = targetEngineDirection;
+            
+            // TODO ease using lerp/slerp
         }
 
         // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
-        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);
+        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);  // TODO may have to use targetEngineDirection instead? double check
         float angleOffset = Quaternion.Angle(rigidBody.rotation, targetRotation);
         if (angleOffset > zeroThreshold)
         {
