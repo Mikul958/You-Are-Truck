@@ -165,7 +165,7 @@ public class TruckMove : MonoBehaviour
             if (targetEngineDirection.magnitude > zeroThreshold)
                 engineDirection = targetEngineDirection;
             
-            // TODO ease using lerp/slerp
+            // TODO may be a good idea to ease using lerp/slerp
         }
 
         // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
@@ -189,11 +189,11 @@ public class TruckMove : MonoBehaviour
 
     private void calculateSpeedUpdates()
     {
-        if (airtime == 0 && Math.Abs(engineSpeed) <= currentEngineCap)
+        if (airtime < airtimeThreshold && Math.Abs(engineSpeed) <= currentEngineCap)
         {
             if (boostTimer > 0)
                 updateEngineSpeedBoost();
-            else
+            else if (airtime == 0)
                 updateEngineSpeed();
         }
         else if (Math.Abs(engineSpeed) > currentEngineCap)
