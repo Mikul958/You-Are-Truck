@@ -12,17 +12,17 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Road
+  - StickyRoad
+  - BoostPanel
+  - Wall
+  - OutOfBounds
+  - Barrel
+  - Oil
+  - Nail
+  - Goal
+  - TruckBody
+  - TruckWheel
   - 
   - 
   - 
