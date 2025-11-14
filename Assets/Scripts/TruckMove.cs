@@ -51,7 +51,8 @@ public class TruckMove : MonoBehaviour
     private float engineSpeed;         // Signed scalar, positive = forwards, negative = backwards
     private Vector3 externalVelocity;  // Sum of all external velocity sources
     private float externalSpeed;       // Unsigned scalar, magnitude of externalVelocity
-    private Vector3 platformVelocity;  // Used for moving platforms
+    private Vector3 platformVelocity;  // Currently velocity applied by moving platforms
+    private Vector3 platformVelocityTarget;  // Target value, updated by TruckCollide
     private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
     private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
@@ -296,7 +297,7 @@ public class TruckMove : MonoBehaviour
 
     private void updatePlatformVelocity()
     {
-        
+        platformVelocity = Vector3.MoveTowards(platformVelocity, platformVelocityTarget, platformAccel * Time.fixedDeltaTime);
     }
 
     private void applyCappedVelocityUpdates()
@@ -354,8 +355,18 @@ public class TruckMove : MonoBehaviour
         boostTimer = boostDuration;
     }
 
+    public void applyOil()
+    {
+        oilTimer = oilDuration;
+    }
+
+    public void applyNail()
+    {
+        nailTimer = nailDuration;
+    }
+
     public void updatePlatformVelocity(Vector3 newVelocity)
     {
-        this.platformVelocity = newVelocity;
+        platformVelocityTarget = newVelocity;
     }
 }

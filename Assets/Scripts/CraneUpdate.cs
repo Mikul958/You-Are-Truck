@@ -34,7 +34,7 @@ public class CraneUpdate : MonoBehaviour
         waitTimer = 0;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (isMoving)
             calculateMove();
@@ -48,7 +48,7 @@ public class CraneUpdate : MonoBehaviour
         float distanceLeft = (endpoints[currentEndpoint] - currentPosition).magnitude;
 
         // If remaining distance is less than speed, update to destination, flip destination/direction, and trigger wait
-        if (distanceLeft <= moveSpeed * Time.fixedDeltaTime)
+        if (distanceLeft <= moveSpeed * Time.deltaTime)
         {
             rigidBody.MovePosition(endpoints[currentEndpoint]);
             currentEndpoint = (currentEndpoint + 1) % 2;
@@ -60,14 +60,14 @@ public class CraneUpdate : MonoBehaviour
         }
 
         // Otherwise, move platform by moveSpeed
-        Vector3 newPosition = currentPosition + moveDirection * moveSpeed * Time.fixedDeltaTime;
+        Vector3 newPosition = currentPosition + moveDirection * moveSpeed * Time.deltaTime;
         rigidBody.MovePosition(newPosition);
     }
 
     private void calculateWait()
     {
         // Decrement waitTimer and enter moving state if expired
-        waitTimer -= Time.fixedDeltaTime;
+        waitTimer -= Time.deltaTime;
         if (waitTimer <= 0f)
             isMoving = true;
     }
