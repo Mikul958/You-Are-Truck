@@ -36,6 +36,5 @@ public class FlagUpdate : MonoBehaviour
     {
         float newRotY = startRot.y + (time / cycleTime * 360);
         transform.rotation = Quaternion.Euler(new Vector3(startRot.x, newRotY, startRot.z));
-        Debug.Log(transform.rotation.eulerAngles.y);
     }
 }

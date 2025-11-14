@@ -22,6 +22,7 @@ public class TruckMove : MonoBehaviour
     public float externalBodyDecel;        // Decelerationapplied to external velocity when the body is on the ground (m/s/s)
     public float externalWheelDecel;       // Deceleration applied to external velocity when the wheels are on the ground (overrides body decel, m/s/s)
     public float externalDecelMultiplier;  // Deceleration applied to external velocity each update (multiplier/tick)
+    public float platformAccel;            // Rate at which platformVelocity changes to meet moving road velocity (m/s/s)
 
     [Header("Handling Rotation")]
     public float minRotationSpeed;  // Lower rotation speed bound (deg/sec)
@@ -50,6 +51,7 @@ public class TruckMove : MonoBehaviour
     private float engineSpeed;         // Signed scalar, positive = forwards, negative = backwards
     private Vector3 externalVelocity;  // Sum of all external velocity sources
     private float externalSpeed;       // Unsigned scalar, magnitude of externalVelocity
+    private Vector3 platformVelocity;  // Used for moving platforms
     private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
     private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
@@ -60,8 +62,8 @@ public class TruckMove : MonoBehaviour
 
     // Vehicle state
     private float currentEngineCap; // Current effective speed cap (m/s)
-    private bool wheelsGrounded;    // Whether or not wheels are touching the floor, used to determine how much external velocity to dampen
-    private float airtime;
+    private float airtime;          // Time since the ground was last touched by any hitbox
+    private float airtimeWheels;    // Time since the ground was last touched by a wheel
     private float boostTimer;
     private float oilTimer;
     private float nailTimer;
@@ -89,8 +91,8 @@ public class TruckMove : MonoBehaviour
         speedSign = 0;
 
         currentEngineCap = topEngineSpeed;
-        wheelsGrounded = false;
         airtime = 0;
+        airtimeWheels = 0;
         boostTimer = 0;
         oilTimer = 0;
         nailTimer = 0;
@@ -111,7 +113,6 @@ public class TruckMove : MonoBehaviour
         processPhysicsDeltas();
         runVelocityUpdates();
         updateTimersAndEngineCap();
-        Debug.Log("Engine speed: " + engineSpeed);
     }
 
     private void readPlayerInputs()
@@ -184,6 +185,7 @@ public class TruckMove : MonoBehaviour
     {
         calculateSpeedUpdates();
         calculateHandlingUpdates();
+        updatePlatformVelocity();
         applyCappedVelocityUpdates();
     }
 
@@ -245,7 +247,7 @@ public class TruckMove : MonoBehaviour
         float externalVelocityDecay = externalSpeed * (1 - externalDecelMultiplier);
         if (airtime == 0)
         {
-            if (wheelsGrounded)
+            if (airtimeWheels == 0)
                 externalVelocityDecay += externalWheelDecel * Time.fixedDeltaTime;
             else
                 externalVelocityDecay += externalBodyDecel * Time.fixedDeltaTime;
@@ -292,10 +294,15 @@ public class TruckMove : MonoBehaviour
         externalVelocity = verticalExternalVelocity + horizontalExternalVelocity;
     }
 
+    private void updatePlatformVelocity()
+    {
+        
+    }
+
     private void applyCappedVelocityUpdates()
     {
         // Calculate applied velocity for this tick and cap if needed
-        appliedVelocity = engineSpeed * engineDirection + externalVelocity;
+        appliedVelocity = engineSpeed * engineDirection + externalVelocity + platformVelocity;
         float newSpeed = appliedVelocity.magnitude;
         if (newSpeed > globalSpeedCap)
             appliedVelocity *= globalSpeedCap / newSpeed;
@@ -336,8 +343,19 @@ public class TruckMove : MonoBehaviour
         airtime = 0;
     }
 
+    public void resetAirtimeWheels()
+    {
+        airtime = 0;
+        airtimeWheels = 0;
+    }
+
     public void applyBoost()
     {
         boostTimer = boostDuration;
+    }
+
+    public void updatePlatformVelocity(Vector3 newVelocity)
+    {
+        this.platformVelocity = newVelocity;
     }
 }
