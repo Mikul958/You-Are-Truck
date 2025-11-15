@@ -1517,9 +1517,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   rigidBody: {fileID: 1295898634}
-  amplitude: {x: 0, y: 0, z: 20}
+  amplitude: {x: 20, y: 0, z: 0}
   reverseDirection: 1
-  moveSpeed: 8
+  moveSpeed: 50
   waitTime: 2
 --- !u!54 &1295898634
 Rigidbody:
@@ -1720,11 +1720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9ce978e454d4f546b1863435d02a779, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.81
+      value: 2.76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9ce978e454d4f546b1863435d02a779, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.6
+      value: 10.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9ce978e454d4f546b1863435d02a779, type: 3}
       propertyPath: m_LocalRotation.w
