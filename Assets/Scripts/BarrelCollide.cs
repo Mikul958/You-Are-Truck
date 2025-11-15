@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class BarrelCollide : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Referenced components
+    public Rigidbody rigidBody;
+    public Destroy barrelDestroy;
+
+    // Constants, set in game editor
+    public float criticalSpeed;
+    
+    void FixedUpdate()
     {
-        
+        if (rigidBody.position.y < 0)
+            barrelDestroy.destroy();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log(collision.relativeVelocity.magnitude);
+        if (collision.relativeVelocity.magnitude >= criticalSpeed)
+            barrelDestroy.destroyExplode();
     }
 }

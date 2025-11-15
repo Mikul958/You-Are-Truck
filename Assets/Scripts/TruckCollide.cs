@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 [DefaultExecutionOrder(0)]
@@ -6,6 +5,7 @@ public class TruckCollide : MonoBehaviour
 {
     // Referenced Game Objects and Components
     public TruckMove truckMove;
+    public Destroy truckDestroy;
 
     // Instance Variables
     private Vector3 workingFloorNormal;
@@ -45,6 +45,12 @@ public class TruckCollide : MonoBehaviour
 
     void FixedUpdate()
     {
+        // Check if the truck is below the global death plane
+        if (transform.position.y < 0)
+        {
+            
+        }
+        
         // Apply floor normal and velocity updates
         if (floorTouched)
         {

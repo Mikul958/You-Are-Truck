@@ -166,8 +166,6 @@ public class TruckMove : MonoBehaviour
             Vector3 targetEngineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;
             if (targetEngineDirection.magnitude > zeroThreshold)
                 engineDirection = targetEngineDirection;
-            
-            // TODO may be a good idea to ease using lerp/slerp
         }
 
         // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
@@ -177,6 +175,8 @@ public class TruckMove : MonoBehaviour
         {
             float angleRatio = Mathf.Clamp01(groundAlignmentSpeed / angleOffset * Time.fixedDeltaTime);
             rigidBody.MoveRotation(Quaternion.Slerp(rigidBody.rotation, targetRotation, angleRatio));
+
+            // TODO map angleRatio based on current engine speed
         }
 
         // TODO ensure horizontal external velocity does not flip if truck drives upside-down
