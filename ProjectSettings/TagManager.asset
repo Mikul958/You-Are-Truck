@@ -16,15 +16,15 @@ TagManager:
   - StickyRoad
   - BoostPanel
   - Wall
-  - OutOfBounds
+  - Kill
+  - KillExplode
+  - KillSquish
   - Barrel
   - Oil
   - Nail
   - Goal
   - TruckBody
   - TruckWheel
-  - 
-  - 
   - 
   - 
   - 
