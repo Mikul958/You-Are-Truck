@@ -19,7 +19,9 @@ public class TruckCollide : MonoBehaviour
     private int stickyRoadMask;
     private int boostPanelMask;
     private int wallMask;
-    private int outOfBoundsMask;
+    private int killMask;
+    private int killExplodeMask;
+    private int killSquishMask;
     private int oilMask;
     private int nailMask;
     private int goalMask;
@@ -37,7 +39,9 @@ public class TruckCollide : MonoBehaviour
         stickyRoadMask = 1 << LayerMask.NameToLayer("StickyRoad");
         boostPanelMask = 1 << LayerMask.NameToLayer("BoostPanel");
         wallMask = 1 << LayerMask.NameToLayer("Wall");
-        outOfBoundsMask = 1 << LayerMask.NameToLayer("OutOfBounds");
+        killMask = 1 << LayerMask.NameToLayer("Kill");
+        killExplodeMask = 1 << LayerMask.NameToLayer("KillExplode");
+        killSquishMask = 1 << LayerMask.NameToLayer("KillSquish");
         oilMask = 1 << LayerMask.NameToLayer("Oil");
         nailMask = 1 << LayerMask.NameToLayer("Nail");
         goalMask = 1 << LayerMask.NameToLayer("Goal");
@@ -48,7 +52,8 @@ public class TruckCollide : MonoBehaviour
         // Check if the truck is below the global death plane
         if (transform.position.y < 0)
         {
-            
+            truckDestroy.kill();
+            return;
         }
         
         // Apply floor normal and velocity updates
@@ -72,6 +77,7 @@ public class TruckCollide : MonoBehaviour
             checkForStickyRoad(collision);
             checkForBoostPanel(collision);
         }
+        checkForSolidOutOfBounds(collision);
     }
 
     private bool checkForDrivable(Collision collision)
@@ -131,6 +137,15 @@ public class TruckCollide : MonoBehaviour
             truckMove.applyBoost();
     }
 
+    private void checkForSolidOutOfBounds(Collision collision)
+    {
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & killExplodeMask) > 0)
+            truckDestroy.destroyExplode();
+        else if ((surfaceLayerMask & killSquishMask) > 0)
+            truckDestroy.destroySquish();
+    }
+
     void OnTriggerEnter(Collider trigger)
     {
         int layerMask = 1 << trigger.gameObject.layer;
@@ -151,7 +166,7 @@ public class TruckCollide : MonoBehaviour
     
     private void checkForOutOfBounds(int collisionLayer)
     {
-        if ((collisionLayer & outOfBoundsMask) > 0)
+        if ((collisionLayer & killMask) > 0)
         {
             Debug.Log("Explode");
             // TODO send kill to Destroy component

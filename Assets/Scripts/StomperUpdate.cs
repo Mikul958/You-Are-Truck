@@ -40,7 +40,7 @@ public class StomperUpdate : MonoBehaviour
         if (isLethal)
             killPlane.layer = LayerMask.NameToLayer("Wall");
         else
-            killPlane.layer = LayerMask.NameToLayer("Road");
+            killPlane.layer = LayerMask.NameToLayer("StickyRoad");
     }
 
     void Update()
@@ -90,6 +90,9 @@ public class StomperUpdate : MonoBehaviour
         // Update position along up vector in a sine-based motion based on set amplitude and period.
         Vector3 newPos = startPos + transform.up * shakeAmplitude * (float)Math.Sin(timer / shakePeriod * 2 * Math.PI);
         rigidBody.MovePosition(newPos);
+        
+        // Force set velocity to zero to mitigate erratic collision behaviors during shake
+        rigidBody.linearVelocity = Vector3.zero;
     }
 
     private void invokeStomp()

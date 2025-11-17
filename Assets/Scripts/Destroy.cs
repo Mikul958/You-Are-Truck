@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
+    public void kill()
+    {
+        Debug.Log(gameObject.name + " killed");
+        // TODO prompt death
+    }
+    
     public void destroy()
     {
         Debug.Log(gameObject.name + " destroyed");
