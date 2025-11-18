@@ -31,6 +31,7 @@ public class TruckMove : MonoBehaviour
     public float maxTurnThreshold;  // The moving speed at which the rotation speed reaches its max (m/s)
 
     [Header("Miscellaneous Physics")]
+    public float jumpSpeed;             // Magnitude of initial velocity applied by jumps
     public float groundAlignmentSpeed;  // How fast the vehicle attempts to realign itself while touching the ground (deg/sec)
 
     [Header("Airtime Effects")]
@@ -56,13 +57,15 @@ public class TruckMove : MonoBehaviour
     private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
     private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
-    // Important vehicle signs
+    // Inputs and stored speed sign to cut down on calculations
     private int forwardInputSign;   // 0 = neutral, 1 = forwards, -1 = backwards
     private int sidewaysInputSign;  // 0 = neutral, -1 = left, 1 = right
+    private bool jumpPressed;
     private int speedSign;          // 0 = engineSpeed near zero, otherwise matches sign of engineSpeed
 
     // Vehicle state
     private float currentEngineCap; // Current effective speed cap (m/s)
+    private bool canJump;           // Whether or not a jump is permitted by pressing the jump button
     private float airtime;          // Time since the ground was last touched by any hitbox
     private float airtimeWheels;    // Time since the ground was last touched by a wheel
     private float boostTimer;
@@ -89,9 +92,11 @@ public class TruckMove : MonoBehaviour
 
         forwardInputSign = 0;
         sidewaysInputSign = 0;
+        jumpPressed = false;
         speedSign = 0;
 
         currentEngineCap = topEngineSpeed;
+        canJump = false;
         airtime = 0;
         airtimeWheels = 0;
         boostTimer = 0;
@@ -118,17 +123,22 @@ public class TruckMove : MonoBehaviour
 
     private void readPlayerInputs()
     {
+        // Get inputs for acceleration
         forwardInputSign = 0;
         if (Input.GetKey(KeyCode.W))
             forwardInputSign++;
         if (Input.GetKey(KeyCode.S))
             forwardInputSign--;
 
+        // Get inputs for turning
         sidewaysInputSign = 0;
         if (Input.GetKey(KeyCode.A))
             sidewaysInputSign--;
         if (Input.GetKey(KeyCode.D))
             sidewaysInputSign++;
+        
+        // Get jump input
+        jumpPressed = Input.GetKey(KeyCode.Space);
     }
 
     private void processPhysicsDeltas()
@@ -186,6 +196,7 @@ public class TruckMove : MonoBehaviour
     {
         calculateSpeedUpdates();
         calculateHandlingUpdates();
+        calculateJump();
         updatePlatformVelocity();
         applyCappedVelocityUpdates();
     }
@@ -295,9 +306,31 @@ public class TruckMove : MonoBehaviour
         externalVelocity = verticalExternalVelocity + horizontalExternalVelocity;
     }
 
+    private void calculateJump()
+    {
+        // Re-enable jump if player touches a drivable surface
+        if (airtime == 0)
+            canJump = true;
+        
+        // Apply jump velocity along floor normal to external velocity if jump is pressed and wheels (note, no fixedDeltaTime, direct one-time application)
+        if (jumpPressed && airtimeWheels <= airtimeThreshold)
+        {
+            externalVelocity += jumpSpeed * floorNormal;
+            canJump = false;
+        }
+    }
+
     private void updatePlatformVelocity()
     {
-        platformVelocity = Vector3.MoveTowards(platformVelocity, platformVelocityTarget, platformAccel * Time.fixedDeltaTime);
+        // Separate platform velocity components into horizontal and vertical
+        Vector3 platformVelocityHorizontal = new Vector3(platformVelocity.x, 0f, platformVelocity.z);
+        Vector3 platformVelocityTargetHorizontal = new Vector3(platformVelocityTarget.x, 0f, platformVelocityTarget.z);
+        
+        // Move horizontal components smoothly, set vertical component instantly
+        platformVelocityHorizontal = Vector3.MoveTowards(platformVelocityHorizontal, platformVelocityTargetHorizontal, platformAccel * Time.fixedDeltaTime);
+        platformVelocity.x = platformVelocityHorizontal.x;
+        platformVelocity.y = platformVelocityTarget.y;
+        platformVelocity.z = platformVelocityHorizontal.z;
     }
 
     private void applyCappedVelocityUpdates()

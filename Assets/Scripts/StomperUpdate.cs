@@ -43,7 +43,7 @@ public class StomperUpdate : MonoBehaviour
             killPlane.layer = LayerMask.NameToLayer("StickyRoad");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Invoke the state function stored by the runCurrentState function pointer.
         runCurrentState();
@@ -52,7 +52,7 @@ public class StomperUpdate : MonoBehaviour
     private void runInitialWait()
     {
         // Update timer. If it passes the initial wait duration, update to idle wait state. This state is never encountered again after it ends.
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         if (timer >= initialWait)
             invokeWait();
     }
@@ -66,7 +66,7 @@ public class StomperUpdate : MonoBehaviour
     private void runWait()
     {
         // Update timer. If it passes the idle wait duration, update to shake state.
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         if (timer >= idleWait)
             invokeShake();
     }
@@ -80,7 +80,7 @@ public class StomperUpdate : MonoBehaviour
     private void runShake()
     {
         // Update timer. If it passes the shake duration, update to stomp state.
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         if (timer >= shakeDuration)
         {
             invokeStomp();
@@ -90,9 +90,6 @@ public class StomperUpdate : MonoBehaviour
         // Update position along up vector in a sine-based motion based on set amplitude and period.
         Vector3 newPos = startPos + transform.up * shakeAmplitude * (float)Math.Sin(timer / shakePeriod * 2 * Math.PI);
         rigidBody.MovePosition(newPos);
-        
-        // Force set velocity to zero to mitigate erratic collision behaviors during shake
-        rigidBody.linearVelocity = Vector3.zero;
     }
 
     private void invokeStomp()
@@ -111,7 +108,7 @@ public class StomperUpdate : MonoBehaviour
         // TODO implement
 
         // Move stomper head down along local up vector. If it passes max stomp length, move to max stomp length and update to retreat wait state.
-        Vector3 newPos = rigidBody.position - transform.up * stompSpeed * Time.deltaTime;
+        Vector3 newPos = rigidBody.position - transform.up * stompSpeed * Time.fixedDeltaTime;
         if ((newPos - startPos).magnitude >= maxStompLength)
         {
             rigidBody.MovePosition(startPos - transform.up * maxStompLength);
@@ -137,7 +134,7 @@ public class StomperUpdate : MonoBehaviour
 
     private void runRetreatWait()
     {
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         if (timer >= retreatWait)
             invokeRetreat();
     }
@@ -151,7 +148,7 @@ public class StomperUpdate : MonoBehaviour
     private void runRetreat()
     {
         // Move stomper head up along local up vector. If it retreats beyond its start position, move to start position and update to wait state.
-        Vector3 newPos = rigidBody.position + transform.up * retreatSpeed * Time.deltaTime;
+        Vector3 newPos = rigidBody.position + transform.up * retreatSpeed * Time.fixedDeltaTime;
         if (Vector3.Dot(newPos - startPos, transform.up) >= 0)
         {
             rigidBody.MovePosition(startPos);
