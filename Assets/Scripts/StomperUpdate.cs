@@ -8,7 +8,9 @@ public delegate void RunState();
 public class StomperUpdate : MonoBehaviour
 {
     // Referenced components
-    public Rigidbody rigidBody;
+    public GameObject headModel;
+    public GameObject headCollision;
+    private Rigidbody headRigidBody;
     public GameObject killPlane;
 
     // Constants, set in game engine
@@ -35,6 +37,8 @@ public class StomperUpdate : MonoBehaviour
         startPos = transform.position;
         timer = 0f;
         runCurrentState = this.runInitialWait;
+
+        headRigidBody = headCollision.GetComponent<Rigidbody>();
         
         // If stomper is set to kill, stomper head will become out of bounds during stomp state. Otherwise, it remains permanently drivable.
         if (isLethal)
@@ -87,14 +91,14 @@ public class StomperUpdate : MonoBehaviour
             return;
         }
         
-        // Update position along up vector in a sine-based motion based on set amplitude and period.
+        // Update position along up vector in a sine-based motion based on set amplitude and period (model only, not collision)
         Vector3 newPos = startPos + transform.up * shakeAmplitude * (float)Math.Sin(timer / shakePeriod * 2 * Math.PI);
-        rigidBody.MovePosition(newPos);
+        headModel.transform.position = newPos;
     }
 
     private void invokeStomp()
     {
-        rigidBody.MovePosition(startPos);
+        headModel.transform.position = startPos;
         timer = 0f;
         runCurrentState = this.runStomp;
 
@@ -104,19 +108,18 @@ public class StomperUpdate : MonoBehaviour
 
     private void runStomp()
     {
-        // Check for stomper collision with the course and stop early if encountered.
-        // TODO implement
-
         // Move stomper head down along local up vector. If it passes max stomp length, move to max stomp length and update to retreat wait state.
-        Vector3 newPos = rigidBody.position - transform.up * stompSpeed * Time.fixedDeltaTime;
+        Vector3 newPos = headRigidBody.position - transform.up * stompSpeed * Time.fixedDeltaTime;
         if ((newPos - startPos).magnitude >= maxStompLength)
         {
-            rigidBody.MovePosition(startPos - transform.up * maxStompLength);
+            headModel.transform.position = startPos - transform.up * maxStompLength;
+            headRigidBody.MovePosition(startPos - transform.up * maxStompLength);
             invokeRetreatWait();
         }
         else
         {
-            rigidBody.MovePosition(newPos);
+            headModel.transform.position = newPos;
+            headRigidBody.MovePosition(newPos);
         }
     }
 
@@ -148,15 +151,17 @@ public class StomperUpdate : MonoBehaviour
     private void runRetreat()
     {
         // Move stomper head up along local up vector. If it retreats beyond its start position, move to start position and update to wait state.
-        Vector3 newPos = rigidBody.position + transform.up * retreatSpeed * Time.fixedDeltaTime;
+        Vector3 newPos = headRigidBody.position + transform.up * retreatSpeed * Time.fixedDeltaTime;
         if (Vector3.Dot(newPos - startPos, transform.up) >= 0)
         {
-            rigidBody.MovePosition(startPos);
+            headModel.transform.position = startPos;
+            headRigidBody.MovePosition(startPos);
             invokeWait();
         }
         else
         {
-            rigidBody.MovePosition(newPos);
+            headModel.transform.position = newPos;
+            headRigidBody.MovePosition(newPos);
         }
     }
 }
