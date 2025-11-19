@@ -69,6 +69,7 @@ public class TruckCollide : MonoBehaviour
         workingPlatformVelocity = Vector3.zero;
     }
 
+    // Solid collision checks
     void OnCollisionStay(Collision collision)
     {
         bool touchedDrivable = checkForDrivable(collision);
@@ -146,11 +147,17 @@ public class TruckCollide : MonoBehaviour
             truckDestroy.destroySquish();
     }
 
+    // Non-solid collision checks
     void OnTriggerEnter(Collider trigger)
     {
         int layerMask = 1 << trigger.gameObject.layer;
         checkForGoal(layerMask);
         checkForOutOfBounds(layerMask);
+    }
+
+    void OnTriggerStay(Collider trigger)
+    {
+        int layerMask = 1 << trigger.gameObject.layer;
         checkForOil(layerMask);
         checkForNail(layerMask);
     }
@@ -176,12 +183,18 @@ public class TruckCollide : MonoBehaviour
     private void checkForOil(int collisionLayer)
     {
         if ((collisionLayer & oilMask) > 0)
+        {
+            Debug.Log("Oil encountered");
             truckMove.applyOil();
+        }
     }
 
     private void checkForNail(int collisionLayer)
     {
         if ((collisionLayer & nailMask) > 0)
+        {
+            Debug.Log("Nails encountered");
             truckMove.applyNail();
+        }
     }
 }

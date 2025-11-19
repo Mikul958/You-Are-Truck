@@ -308,12 +308,12 @@ public class TruckMove : MonoBehaviour
 
     private void calculateJump()
     {
-        // Re-enable jump if player touches a drivable surface
-        if (airtime == 0)
+        // Re-enable jump if player touches a drivable surface and is not holding the jump button
+        if (airtime == 0 && !jumpPressed)
             canJump = true;
         
         // Apply jump velocity along floor normal to external velocity if jump is pressed and wheels (note, no fixedDeltaTime, direct one-time application)
-        if (jumpPressed && airtimeWheels <= airtimeThreshold)
+        if (jumpPressed && canJump && airtimeWheels <= airtimeThreshold)
         {
             externalVelocity += jumpSpeed * floorNormal;
             canJump = false;
