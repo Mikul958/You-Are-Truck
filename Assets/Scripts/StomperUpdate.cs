@@ -44,7 +44,7 @@ public class StomperUpdate : MonoBehaviour
         if (isLethal)
             killPlane.layer = LayerMask.NameToLayer("Wall");
         else
-            killPlane.layer = LayerMask.NameToLayer("StickyRoad");
+            killPlane.layer = LayerMask.NameToLayer("Road");
     }
 
     void FixedUpdate()
