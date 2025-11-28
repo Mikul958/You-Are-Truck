@@ -402,4 +402,9 @@ public class TruckMove : MonoBehaviour
     {
         platformVelocityTarget = newVelocity;
     }
+
+    public Vector3 getEngineDirection()
+    {
+        return engineDirection;  // For camera follow
+    }
 }
