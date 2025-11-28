@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - boost
+  - CranePlatform
   layers:
   - Default
   - TransparentFX
@@ -12,19 +12,19 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Road
+  - StickyRoad
+  - BoostPanel
+  - Wall
+  - Kill
+  - KillExplode
+  - KillSquish
+  - Barrel
+  - Oil
+  - Nail
+  - Goal
+  - TruckBody
+  - TruckWheel
   - 
   - 
   - 
