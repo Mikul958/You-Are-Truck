@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - CranePlatform
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -25,9 +26,9 @@ TagManager:
   - Goal
   - TruckBody
   - TruckWheel
-  - 
-  - 
-  - 
+  - BossTruck
+  - BossWeakSpot
+  - Rocket
   - 
   - 
   - 

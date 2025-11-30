@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8752258938599413434}
   m_Layer: 0
   m_Name: Truck
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   maxRotationSpeed: 75
   minTurnThreshold: 2
   maxTurnThreshold: 40
-  jumpSpeed: 10
+  jumpSpeed: 15
   groundAlignmentSpeed: 30
   airtimeThreshold: 0.5
   airtimeTurnMultiplier: 0.2
