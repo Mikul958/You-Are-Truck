@@ -179,8 +179,6 @@ public class TruckMove : MonoBehaviour
         {
             float angleRatio = Mathf.Clamp01(groundAlignmentSpeed / angleOffset * Time.fixedDeltaTime);
             rigidBody.MoveRotation(Quaternion.Slerp(rigidBody.rotation, targetRotation, angleRatio));
-
-            // TODO map angleRatio based on current engine speed
         }
     }
 

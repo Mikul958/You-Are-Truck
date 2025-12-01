@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class BossMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Referenced Game Objects and Components
+    public WheelAnimator wheelAnimator;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        wheelAnimator.updateMovementInfo(10, 1, false);
     }
 }
