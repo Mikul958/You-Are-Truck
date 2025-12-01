@@ -113,8 +113,8 @@ public class TruckMove : MonoBehaviour
 
         currentEngineCap = topEngineSpeed;
         canJump = false;
-        airtime = 0;
-        airtimeWheels = 0;
+        airtime = airtimeThreshold;
+        airtimeWheels = airtimeThreshold;
         stickyRoad = false;
         boostTimer = 0;
         oilTimer = 0;
@@ -343,7 +343,7 @@ public class TruckMove : MonoBehaviour
 
         // Use minimum distance and sticky road normal to form final stickyRoadAdjust
         if (foundStickyRoad && totalNormal.magnitude > zeroThreshold)
-            stickyRoadAdjust = minDistance * -totalNormal.normalized;
+            stickyRoadAdjust = minDistance * (-totalNormal.normalized);
     }
 
     private void calculateJump()

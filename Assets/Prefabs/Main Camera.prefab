@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraMove
   targetDistance: 8
-  verticalOffset: 1.5
-  targetAngleOffset: {x: 10, y: 0, z: 0}
+  verticalOffset: 2
+  targetAngleOffset: {x: 15, y: 0, z: 0}
   minSpeed: 0
   maxSpeed: 150
   minMoveSmooth: 8

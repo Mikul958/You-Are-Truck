@@ -502,8 +502,9 @@ MonoBehaviour:
   wheelRadius: 0.5
   steerSpeed: 75
   maxSteerAngle: 45
-  extendSpeed: 0
-  retreatSpeed: 0
+  extendSpeed: 15
+  retreatSpeed: 12
+  maxExtend: 1
 --- !u!114 &7105240980153976328
 MonoBehaviour:
   m_ObjectHideFlags: 0
