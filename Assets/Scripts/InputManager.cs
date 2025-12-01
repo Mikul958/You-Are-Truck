@@ -63,7 +63,7 @@ public class InputManager : MonoBehaviour
         return sidewaysInputSign;
     }
 
-    public bool getJumpPressed()
+    public bool isJumpPressed()
     {
         return jumpPressed;
     }

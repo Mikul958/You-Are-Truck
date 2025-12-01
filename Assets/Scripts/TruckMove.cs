@@ -10,6 +10,7 @@ public class TruckMove : MonoBehaviour
     // Referenced Game Objects and Components
     public Rigidbody rigidBody;
     public InputManager inputManager;
+    public WheelAnimator wheelAnimator;
     private List<GameObject> truckWheels;
 
     // Truck constants, set in editor
@@ -95,15 +96,7 @@ public class TruckMove : MonoBehaviour
         truckWheels = new List<GameObject>();
         foreach (Transform childTransform in gameObject.transform)
         {
-            if (childTransform.gameObject.layer != LayerMask.NameToLayer("TruckWheel"))
-                continue;
-            
-            Debug.Log("Found wheel");
-
-            // Place front wheels in the first half of list for animation purposes
-            if (childTransform.gameObject.name.StartsWith('F'))
-                truckWheels.Insert(0, childTransform.gameObject);
-            else
+            if (childTransform.gameObject.layer == LayerMask.NameToLayer("TruckWheel"))
                 truckWheels.Add(childTransform.gameObject);
         }
         
@@ -140,13 +133,12 @@ public class TruckMove : MonoBehaviour
     {
         processPhysicsDeltas();
         runVelocityUpdates();
+        wheelAnimator.updateMovementInfo(engineSpeed, inputManager.getSidewaysInputSign(), inputManager.isJumpPressed());
         updateTimersAndEngineCap();
     }
 
     private void processPhysicsDeltas()
     {
-        // TODO need to figure out how to apply angular dampening on floor normal axis and flip vehicle roll to match normal
-        
         // Isolate velocity applied by Unity's physics on this tick
         physicsDelta = rigidBody.linearVelocity - appliedVelocity;
 
@@ -181,7 +173,7 @@ public class TruckMove : MonoBehaviour
         }
 
         // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
-        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);  // TODO may have to use targetEngineDirection instead? double check
+        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);
         float angleOffset = Quaternion.Angle(rigidBody.rotation, targetRotation);
         if (angleOffset > zeroThreshold)
         {
@@ -190,8 +182,6 @@ public class TruckMove : MonoBehaviour
 
             // TODO map angleRatio based on current engine speed
         }
-
-        // TODO ensure horizontal external velocity does not flip if truck drives upside-down
     }
 
     private void runVelocityUpdates()
@@ -295,11 +285,11 @@ public class TruckMove : MonoBehaviour
         rigidBody.MoveRotation(rigidBody.rotation * vehicleRotationOffset);
 
         // Calculate true turn angle based on oil state (note that engine direction is updated based on facing direction earlier on, so offset is applied each update)
+        // TODO this is not great at the moment, seems to apply offset regardless of engine speed, see if it can be fixed
         float targetOffset = 0f;
         if (oilTimer > 0f)
             targetOffset = maxSlipAngle * inputManager.getSidewaysInputSign();
         float offsetDiff = Math.Abs(targetOffset - slipTurnOffset);
-        Debug.Log("Offset diff: " + slipTurnOffset);
         if (offsetDiff > zeroThreshold)
             slipTurnOffset = Mathf.Lerp(slipTurnOffset, targetOffset, slipDeviationSpeed / offsetDiff * Time.fixedDeltaTime);
 
@@ -359,11 +349,11 @@ public class TruckMove : MonoBehaviour
     private void calculateJump()
     {
         // Re-enable jump if player touches a drivable surface and is not holding the jump button
-        if (airtime == 0 && !inputManager.getJumpPressed())
+        if (airtime == 0 && !inputManager.isJumpPressed())
             canJump = true;
         
         // Apply jump velocity along floor normal to external velocity if jump is pressed and wheels (note, no fixedDeltaTime, direct one-time application)
-        if (inputManager.getJumpPressed() && canJump && airtimeWheels <= airtimeThreshold)
+        if (inputManager.isJumpPressed() && canJump && airtimeWheels <= airtimeThreshold)
         {
             externalVelocity += jumpSpeed * floorNormal;
             stickyRoad = false;
