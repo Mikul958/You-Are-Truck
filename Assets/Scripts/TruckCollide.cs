@@ -128,7 +128,9 @@ public class TruckCollide : MonoBehaviour
 
     private void checkForStickyRoad(Collision collision)
     {
-        // TODO
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & stickyRoadMask) > 0)
+            truckMove.applyStickyRoad();
     }
 
     private void checkForBoostPanel(Collision collision)

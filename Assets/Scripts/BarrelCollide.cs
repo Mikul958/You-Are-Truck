@@ -17,7 +17,6 @@ public class BarrelCollide : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.relativeVelocity.magnitude);
         if (collision.relativeVelocity.magnitude >= criticalSpeed)
             barrelDestroy.destroyExplode();
     }
