@@ -9,6 +9,7 @@ public class TruckMove : MonoBehaviour
 {
     // Referenced Game Objects and Components
     public Rigidbody rigidBody;
+    public InputManager inputManager;
     private List<GameObject> truckWheels;
 
     // Truck constants, set in editor
@@ -58,6 +59,7 @@ public class TruckMove : MonoBehaviour
     private Vector3 floorNormal;       // Cumulative normal of all "floor type" colliders being touched by wheels
     private Vector3 engineDirection;   // Direction of engine velocity, only updated when on the ground
     private float engineSpeed;         // Signed scalar, positive = forwards, negative = backwards
+    private int speedSign;             // Stored sign of engine speed to cut down on sign checks
     private float slipTurnOffset;      // Current offset of velocity from facing angle
     private Vector3 externalVelocity;  // Sum of all external velocity sources
     private float externalSpeed;       // Unsigned scalar, magnitude of externalVelocity
@@ -66,12 +68,6 @@ public class TruckMove : MonoBehaviour
     private Vector3 platformVelocityTarget;  // Target value, updated by TruckCollide
     private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
     private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
-
-    // Inputs and stored speed sign to cut down on calculations
-    private int forwardInputSign;   // 0 = neutral, 1 = forwards, -1 = backwards
-    private int sidewaysInputSign;  // 0 = neutral, -1 = left, 1 = right
-    private bool jumpPressed;
-    private int speedSign;          // 0 = engineSpeed near zero, otherwise matches sign of engineSpeed
 
     // Vehicle state
     private float currentEngineCap; // Current effective speed cap (m/s)
@@ -110,23 +106,17 @@ public class TruckMove : MonoBehaviour
             else
                 truckWheels.Add(childTransform.gameObject);
         }
-
-        Debug.Log("Found wheels: " + truckWheels.Count);
         
         facingDirection = rigidBody.rotation * Vector3.forward;
         floorNormal = rigidBody.rotation * Vector3.up;
         engineDirection = facingDirection;
         engineSpeed = 0;
+        speedSign = 0;
         slipTurnOffset = 0;
         externalVelocity = Vector3.zero;
         externalSpeed = 0;
         appliedVelocity = Vector3.zero;
         physicsDelta = Vector3.zero;
-
-        forwardInputSign = 0;
-        sidewaysInputSign = 0;
-        jumpPressed = false;
-        speedSign = 0;
 
         currentEngineCap = topEngineSpeed;
         canJump = false;
@@ -145,38 +135,12 @@ public class TruckMove : MonoBehaviour
         boostPanelMask = 1 << LayerMask.NameToLayer("BoostPanel");
     }
 
-    // Updates that occur every drawn frame
-    void Update()
-    {
-        readPlayerInputs();
-    }
-
     // Updates that occur each time the physics engine ticks
     void FixedUpdate()
     {
         processPhysicsDeltas();
         runVelocityUpdates();
         updateTimersAndEngineCap();
-    }
-
-    private void readPlayerInputs()
-    {
-        // Get inputs for acceleration
-        forwardInputSign = 0;
-        if (Input.GetKey(KeyCode.W))
-            forwardInputSign++;
-        if (Input.GetKey(KeyCode.S))
-            forwardInputSign--;
-
-        // Get inputs for turning
-        sidewaysInputSign = 0;
-        if (Input.GetKey(KeyCode.A))
-            sidewaysInputSign--;
-        if (Input.GetKey(KeyCode.D))
-            sidewaysInputSign++;
-        
-        // Get jump input
-        jumpPressed = Input.GetKey(KeyCode.Space);
     }
 
     private void processPhysicsDeltas()
@@ -267,15 +231,15 @@ public class TruckMove : MonoBehaviour
     private void updateEngineSpeed()
     {
         // If holding neutral, apply neutral decel and exit
-        if (forwardInputSign == 0)
+        if (inputManager.getForwardInputSign() == 0)
         {
             engineSpeed *= neutralDecelMultiplier;
             return;
         }
 
         // Else, apply vehicle accel / brake decel in appropriate direction up to cap
-        if (speedSign == 0 || forwardInputSign == speedSign)
-            engineSpeed += baseAccel * forwardInputSign * Time.fixedDeltaTime;
+        if (speedSign == 0 || inputManager.getForwardInputSign() == speedSign)
+            engineSpeed += baseAccel * inputManager.getForwardInputSign() * Time.fixedDeltaTime;
         else
             engineSpeed -= brakeDecel * speedSign * Time.fixedDeltaTime;
 
@@ -317,10 +281,10 @@ public class TruckMove : MonoBehaviour
         if (Math.Abs(engineSpeed) < minTurnThreshold)
             targetTurnAngle = 0;
         else if (Math.Abs(engineSpeed) >= maxTurnThreshold)
-            targetTurnAngle = maxRotationSpeed * sidewaysInputSign * speedSign * Time.fixedDeltaTime;
+            targetTurnAngle = maxRotationSpeed * inputManager.getSidewaysInputSign() * speedSign * Time.fixedDeltaTime;
         else
             targetTurnAngle = ((Math.Abs(engineSpeed) - minTurnThreshold) * (maxRotationSpeed - minRotationSpeed) / (maxTurnThreshold - minTurnThreshold) + minRotationSpeed)
-                * sidewaysInputSign * speedSign * Time.fixedDeltaTime;
+                * inputManager.getSidewaysInputSign() * speedSign * Time.fixedDeltaTime;
 
         // Apply airtime turn multiplier if player is in the air
         if (airtime > airtimeThreshold)
@@ -333,7 +297,7 @@ public class TruckMove : MonoBehaviour
         // Calculate true turn angle based on oil state (note that engine direction is updated based on facing direction earlier on, so offset is applied each update)
         float targetOffset = 0f;
         if (oilTimer > 0f)
-            targetOffset = maxSlipAngle * sidewaysInputSign;
+            targetOffset = maxSlipAngle * inputManager.getSidewaysInputSign();
         float offsetDiff = Math.Abs(targetOffset - slipTurnOffset);
         Debug.Log("Offset diff: " + slipTurnOffset);
         if (offsetDiff > zeroThreshold)
@@ -395,11 +359,11 @@ public class TruckMove : MonoBehaviour
     private void calculateJump()
     {
         // Re-enable jump if player touches a drivable surface and is not holding the jump button
-        if (airtime == 0 && !jumpPressed)
+        if (airtime == 0 && !inputManager.getJumpPressed())
             canJump = true;
         
         // Apply jump velocity along floor normal to external velocity if jump is pressed and wheels (note, no fixedDeltaTime, direct one-time application)
-        if (jumpPressed && canJump && airtimeWheels <= airtimeThreshold)
+        if (inputManager.getJumpPressed() && canJump && airtimeWheels <= airtimeThreshold)
         {
             externalVelocity += jumpSpeed * floorNormal;
             stickyRoad = false;
@@ -498,5 +462,10 @@ public class TruckMove : MonoBehaviour
     public Vector3 getEngineDirection()
     {
         return engineDirection;  // For camera follow
+    }
+
+    public Vector3 getFloorNormal()
+    {
+        return floorNormal; // For camera follow
     }
 }

@@ -1,9 +1,11 @@
 using UnityEngine;
 
+[DefaultExecutionOrder(2)]
 public class CameraMove : MonoBehaviour
 {
     // Referenced components
     private GameObject playerTruck;
+    private TruckMove truckMove;  // Shorthand reference for above's TruckMove
 
     // Constants, set in game editor
     public float targetDistance;
@@ -33,7 +35,8 @@ public class CameraMove : MonoBehaviour
         }
         else
         {
-            transform.rotation = Quaternion.LookRotation(playerTruck.GetComponent<TruckMove>().getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
+            truckMove = playerTruck.GetComponent<TruckMove>();
+            transform.rotation = Quaternion.LookRotation(truckMove.getEngineDirection(), truckMove.getFloorNormal()) * Quaternion.Euler(targetAngleOffset);
             transform.position = playerTruck.transform.position - transform.forward * targetDistance + transform.up * verticalOffset;
             canMove = true;
         }
@@ -49,7 +52,7 @@ public class CameraMove : MonoBehaviour
         float rotSmooth  = Mathf.Lerp(minRotSmooth, maxRotSmooth, speed / maxSpeed);
 
         // Apply smoothed rotation change to camera
-        Quaternion targetRotation = Quaternion.LookRotation(playerTruck.GetComponent<TruckMove>().getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
+        Quaternion targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSmooth * Time.deltaTime);
 
         // Apply smoothed position change to camera
