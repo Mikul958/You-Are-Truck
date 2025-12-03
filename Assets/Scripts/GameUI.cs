@@ -4,13 +4,16 @@ using UnityEngine.Events;
 public class GameUI : MonoBehaviour
 {
     // Main Menu
-    public UnityEvent onPlayClicked;
+    [HideInInspector]
+    public UnityEvent onLevelSelectClicked;
+    [HideInInspector]
     public UnityEvent onSettingsClicked;
+    [HideInInspector]
     public UnityEvent onExitClicked;
 
     public void clickPlay()
     {
-        onPlayClicked.Invoke();
+        onLevelSelectClicked.Invoke();
     }
     public void clickSettings()
     {
@@ -21,27 +24,44 @@ public class GameUI : MonoBehaviour
         onExitClicked.Invoke();
     }
 
-    // Level Select
-    public UnityEvent onMainMenuClicked;
+    // Level Select & Settings
+    [HideInInspector]
+    public UnityEvent onLevelSelectExitClicked;
+    [HideInInspector]
     public UnityEvent<int> onLevelClicked;
+    [HideInInspector]
+    public UnityEvent onSettingsExitClicked;
 
-    public void clickMainMenu()
+    public void clickLevelSelectExit()
     {
-        onMainMenuClicked.Invoke();
+        onLevelSelectExitClicked.Invoke();
     }
     public void clickLevel(int levelNumber)
     {
         onLevelClicked.Invoke(levelNumber);
+    }
+    public void clickSettingsExit()
+    {
+        onSettingsExitClicked.Invoke();
+    }
+    public void clickTestScene()
+    {
+        onLevelClicked.Invoke(-1);
     }
 
     // Settings
     // TODO
 
     // Gameplay
+    [HideInInspector]
     public UnityEvent onLevelPauseClicked;
+    [HideInInspector]
     public UnityEvent onLevelResumeClicked;
+    [HideInInspector]
     public UnityEvent onLevelRestartClicked;
+    [HideInInspector]
     public UnityEvent onLevelExitClicked;
+    [HideInInspector]
     public UnityEvent onLevelNextClicked;
     
     public void clickLevelPause()

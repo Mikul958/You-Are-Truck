@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [DefaultExecutionOrder(0)]
 public class TruckCollide : MonoBehaviour
@@ -6,6 +7,12 @@ public class TruckCollide : MonoBehaviour
     // Referenced Game Objects and Components
     public TruckMove truckMove;
     public Destroy truckDestroy;
+
+    // Events to propagate for UI / camera
+    [HideInInspector]
+    public UnityEvent onGoalEntered;
+    [HideInInspector]
+    public UnityEvent onTruckDeath;
 
     // Instance Variables
     private Vector3 workingFloorNormal;
@@ -52,6 +59,7 @@ public class TruckCollide : MonoBehaviour
         // Check if the truck is below the global death plane
         if (transform.position.y < 0)
         {
+            onTruckDeath.Invoke();
             truckDestroy.kill();
             return;
         }
@@ -144,9 +152,15 @@ public class TruckCollide : MonoBehaviour
     {
         int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
         if ((surfaceLayerMask & killExplodeMask) > 0)
+        {
+            onTruckDeath.Invoke();
             truckDestroy.destroyExplode();
+        }
         else if ((surfaceLayerMask & killSquishMask) > 0)
+        {
+            onTruckDeath.Invoke();
             truckDestroy.destroySquish();
+        }
     }
 
     // Non-solid collision checks
@@ -167,36 +181,27 @@ public class TruckCollide : MonoBehaviour
     private void checkForGoal(int collisionLayer)
     {
         if ((collisionLayer & goalMask) > 0)
-        {
-            Debug.Log("Level Complete!");
-            // TODO send to level manager
-        }
+            onGoalEntered.Invoke();
     }
     
     private void checkForOutOfBounds(int collisionLayer)
     {
         if ((collisionLayer & killMask) > 0)
         {
-            Debug.Log("Explode");
-            // TODO send kill to Destroy component
+            onTruckDeath.Invoke();
+            truckDestroy.kill();
         }
     }
 
     private void checkForOil(int collisionLayer)
     {
         if ((collisionLayer & oilMask) > 0)
-        {
-            Debug.Log("Oil encountered");
             truckMove.applyOil();
-        }
     }
 
     private void checkForNail(int collisionLayer)
     {
         if ((collisionLayer & nailMask) > 0)
-        {
-            Debug.Log("Nails encountered");
             truckMove.applyNail();
-        }
     }
 }
