@@ -291,12 +291,13 @@ public class TruckMove : MonoBehaviour
         if (offsetDiff > zeroThreshold)
             slipTurnOffset = Mathf.Lerp(slipTurnOffset, targetOffset, slipDeviationSpeed / offsetDiff * Time.fixedDeltaTime);
 
-        // Apply rotation to engine velocity based on calculated floor normal
-        Quaternion engineRotationOffset = Quaternion.AngleAxis(targetTurnAngle - slipTurnOffset, floorNormal);
+        // Apply rotation to engine velocity based on calculated floor normal (only if engineDirection was updated by ground on this frame)
+        float overallTurnAngle = targetTurnAngle - (airtime == 0 ? slipTurnOffset : 0);
+        Quaternion engineRotationOffset = Quaternion.AngleAxis(overallTurnAngle, floorNormal);
         engineDirection = engineRotationOffset * engineDirection;
 
         // Apply rotation around global up vector to horizontal component only of external velocity
-        Quaternion externalRotationOffset = Quaternion.AngleAxis(targetTurnAngle - slipTurnOffset, Vector3.up);
+        Quaternion externalRotationOffset = Quaternion.AngleAxis(overallTurnAngle, Vector3.up);
         Vector3 verticalExternalVelocity = Vector3.Project(externalVelocity, Vector3.up);
         Vector3 horizontalExternalVelocity = externalVelocity - verticalExternalVelocity;
 

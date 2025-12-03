@@ -1057,6 +1057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6125058641197158984, guid: 955993c761899c6439a84a88924c5ef7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7002725018432923086, guid: 955993c761899c6439a84a88924c5ef7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1437,7 +1441,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1445,7 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
       propertyPath: m_LocalRotation.w
