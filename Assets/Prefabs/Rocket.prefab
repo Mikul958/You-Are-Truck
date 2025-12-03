@@ -136,7 +136,7 @@ MonoBehaviour:
   travelSpeed: 40
   rotationSpeed: 45
   maxTravelTime: 10
-  startOffset: {x: 0, y: 7, z: -12}
+  startOffset: {x: 0, y: 10, z: -12}
   startAngleOffset: {x: -20, y: 0, z: 0}
 --- !u!114 &7684271111263206856
 MonoBehaviour:

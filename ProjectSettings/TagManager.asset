@@ -6,6 +6,11 @@ TagManager:
   tags:
   - CranePlatform
   - Boss
+  - UI
+  - BackgroundDim
+  - PauseMenu
+  - WinMenu
+  - LoseMenu
   layers:
   - Default
   - TransparentFX
