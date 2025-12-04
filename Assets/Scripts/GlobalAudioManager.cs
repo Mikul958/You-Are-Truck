@@ -22,21 +22,34 @@ public class GlobalAudioManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = this;
-        DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        // Add all sound effects from inspector list into dictionary
         sfx = new Dictionary<string, SoundEffect>();
         foreach (SoundEffect sound in sfxList)
-            sfx.Add(sound.name, sound);
+            sfx.Add(sound.soundName, sound);
         
+        // Add all music tracks from inspector list into dictionary
         music = new Dictionary<string, MusicTrack>();
         foreach (MusicTrack song in musicList)
-            music.Add(song.name, song);
+            music.Add(song.musicName, song);
         
+        // Create a pool of audio sources for global sound effects
         sourcePool = new List<AudioSource>();
         for (int i=0; i < sourcePoolSize; i++)
             sourcePool.Add(initializeAudioSource());
         musicSource = initializeAudioSource();
+
+        // Start normal background music
+        playMusic("Music");
     }
 
     private AudioSource initializeAudioSource()
@@ -82,8 +95,11 @@ public class GlobalAudioManager : MonoBehaviour
 
     public void playMusic(string musicName)
     {
-        if (!sfx.ContainsKey(musicName))
+        if (!music.ContainsKey(musicName))
+        {
+            Debug.Log("Found no sound effect with the name " + musicName);
             return;
+        }
         MusicTrack song = music[musicName];
         
         stopMusic();

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dd9f9d08e08fa04297cd22620510128, type: 3}
   m_Name: music-boss
   m_EditorClassIdentifier: Assembly-CSharp::MusicTrack
-  musicName: 
-  clip: {fileID: 0}
-  volume: 1
+  musicName: BossMusic
+  clip: {fileID: 8300000, guid: b953ae41072262f43b116d21ff82bc92, type: 3}
+  volume: 0.75
   loop: 1
