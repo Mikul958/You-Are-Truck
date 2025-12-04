@@ -99,11 +99,11 @@ public class GameUI : MonoBehaviour
 
     // Audio Manager / Sound references
     public SoundEffect buttonSound;
-    private GlobalAudioManager audioManager;
+    private AudioManager audioManager;
     void Start()
     {
         GameObject audioManagerObject = GameObject.FindWithTag("AudioManager");
         if (audioManagerObject != null)
-            audioManager = audioManagerObject.GetComponent<GlobalAudioManager>();
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
     }
 }

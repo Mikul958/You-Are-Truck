@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GlobalAudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
-    public static GlobalAudioManager instance;
+    public static AudioManager instance;
 
     [SerializeField]
     private SoundEffect[] sfxList;
@@ -49,7 +49,7 @@ public class GlobalAudioManager : MonoBehaviour
         musicSource = initializeAudioSource();
 
         // Start normal background music
-        playMusic("Music");
+        // playMusic("Music");
     }
 
     private AudioSource initializeAudioSource()
@@ -75,6 +75,7 @@ public class GlobalAudioManager : MonoBehaviour
         openSource.clip = sound.clip;
         openSource.volume = sound.volume;
         openSource.pitch = sound.pitch;
+        openSource.loop = sound.loop;
         openSource.Play();
     }
 
@@ -90,16 +91,14 @@ public class GlobalAudioManager : MonoBehaviour
         openSource.clip = sound.clip;
         openSource.volume = sound.volume;
         openSource.pitch = sound.pitch;
+        openSource.loop = sound.loop;
         openSource.Play();
     }
 
     public void playMusic(string musicName)
     {
         if (!music.ContainsKey(musicName))
-        {
-            Debug.Log("Found no sound effect with the name " + musicName);
             return;
-        }
         MusicTrack song = music[musicName];
         
         stopMusic();
@@ -128,4 +127,16 @@ public class GlobalAudioManager : MonoBehaviour
         return null;
     }
     #nullable disable
+
+    public void updateLocalizedAudioSource(AudioSource audioSource, string soundName)
+    {
+        if (!sfx.ContainsKey(soundName))
+            return;
+        SoundEffect sound = sfx[soundName];
+        
+        audioSource.clip = sound.clip;
+        audioSource.volume = sound.volume;
+        audioSource.pitch = sound.pitch;
+        audioSource.loop = sound.loop;
+    }
 }

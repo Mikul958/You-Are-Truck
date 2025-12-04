@@ -916,6 +916,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TruckCollide
   truckMove: {fileID: 349537807926902430}
   truckDestroy: {fileID: 7841433611405651879}
+  onGoalEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  onTruckDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1832951887439249530
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class TruckMove : MonoBehaviour
     public InputManager inputManager;
     public WheelAnimator wheelAnimator;
     private List<GameObject> truckWheels;
+    private AudioManager audioManager;
+    private AudioSource engineAudio;
 
     // Truck constants, set in editor
     [Header("Speed Caps")]
@@ -99,6 +101,18 @@ public class TruckMove : MonoBehaviour
             if (childTransform.gameObject.layer == LayerMask.NameToLayer("TruckWheel"))
                 truckWheels.Add(childTransform.gameObject);
         }
+        GameObject audioManagerObject = GameObject.FindGameObjectWithTag("AudioManager");
+        if (audioManagerObject != null)
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        engineAudio = gameObject.AddComponent<AudioSource>();
+        engineAudio.playOnAwake = false;
+        engineAudio.spatialBlend = 1f;
+        engineAudio.rolloffMode = AudioRolloffMode.Logarithmic;
+
+        // TODO TEMPORARY CODE
+        audioManager.updateLocalizedAudioSource(engineAudio, "EngineIdle");
+        engineAudio.Play();
+        // TODO
         
         facingDirection = rigidBody.rotation * Vector3.forward;
         floorNormal = rigidBody.rotation * Vector3.up;
@@ -133,7 +147,8 @@ public class TruckMove : MonoBehaviour
     {
         processPhysicsDeltas();
         runVelocityUpdates();
-        wheelAnimator.updateMovementInfo(engineSpeed, inputManager.getSidewaysInputSign(), inputManager.isJumpPressed());
+        updateWheelAnimations();
+        updateAudio();
         updateTimersAndEngineCap();
     }
 
@@ -385,6 +400,24 @@ public class TruckMove : MonoBehaviour
         rigidBody.linearVelocity = appliedVelocity + stickyRoadAdjust;
     }
 
+    private void updateWheelAnimations()
+    {
+        wheelAnimator.updateMovementInfo(engineSpeed, inputManager.getSidewaysInputSign(), inputManager.isJumpPressed());
+    }
+
+    private void updateAudio()
+    {
+        int forwardInputSign = inputManager.getForwardInputSign();
+        if (forwardInputSign == 0)
+            audioManager.updateLocalizedAudioSource(engineAudio, "EngineIdle");
+        else if (forwardInputSign == speedSign)
+            audioManager.updateLocalizedAudioSource(engineAudio, "EngineRev");
+        else if (forwardInputSign != speedSign && airtime == 0)
+            audioManager.updateLocalizedAudioSource(engineAudio, "Brake");
+        
+        // TODO Find some way to check if sound has been updated or not, only play if it has
+    }
+
     private void updateTimersAndEngineCap()
     {
         // Update timers
@@ -448,6 +481,11 @@ public class TruckMove : MonoBehaviour
         platformVelocityTarget = newVelocity;
     }
 
+    // Necessary getters
+    public Vector3 getTotalVelocity()
+    {
+        return rigidBody.linearVelocity;  // For collision audio
+    }
     public Vector3 getEngineDirection()
     {
         return engineDirection;  // For camera follow
@@ -456,5 +494,10 @@ public class TruckMove : MonoBehaviour
     public Vector3 getFloorNormal()
     {
         return floorNormal; // For camera follow
+    }
+
+    public float getAirtime()
+    {
+        return airtime;  // For collision audio
     }
 }
