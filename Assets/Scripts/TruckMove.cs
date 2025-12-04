@@ -13,6 +13,7 @@ public class TruckMove : MonoBehaviour
     public WheelAnimator wheelAnimator;
     private List<GameObject> truckWheels;
     private AudioManager audioManager;
+    private AudioSource idleAudio;
     private AudioSource engineAudio;
 
     // Truck constants, set in editor
@@ -104,15 +105,17 @@ public class TruckMove : MonoBehaviour
         GameObject audioManagerObject = GameObject.FindGameObjectWithTag("AudioManager");
         if (audioManagerObject != null)
             audioManager = audioManagerObject.GetComponent<AudioManager>();
+        idleAudio = gameObject.AddComponent<AudioSource>();
+        idleAudio.playOnAwake = false;
+        idleAudio.spatialBlend = 1f;
+        idleAudio.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioManager.updateLocalizedAudioSource(idleAudio, "EngineIdle");
+        idleAudio.Play();
+
         engineAudio = gameObject.AddComponent<AudioSource>();
         engineAudio.playOnAwake = false;
         engineAudio.spatialBlend = 1f;
         engineAudio.rolloffMode = AudioRolloffMode.Logarithmic;
-
-        // TODO TEMPORARY CODE
-        audioManager.updateLocalizedAudioSource(engineAudio, "EngineIdle");
-        engineAudio.Play();
-        // TODO
         
         facingDirection = rigidBody.rotation * Vector3.forward;
         floorNormal = rigidBody.rotation * Vector3.up;
@@ -148,7 +151,7 @@ public class TruckMove : MonoBehaviour
         processPhysicsDeltas();
         runVelocityUpdates();
         updateWheelAnimations();
-        updateAudio();
+        updateEngineAudio();
         updateTimersAndEngineCap();
     }
 
@@ -405,17 +408,18 @@ public class TruckMove : MonoBehaviour
         wheelAnimator.updateMovementInfo(engineSpeed, inputManager.getSidewaysInputSign(), inputManager.isJumpPressed());
     }
 
-    private void updateAudio()
+    private void updateEngineAudio()
     {
         int forwardInputSign = inputManager.getForwardInputSign();
         if (forwardInputSign == 0)
-            audioManager.updateLocalizedAudioSource(engineAudio, "EngineIdle");
+            audioManager.updateLocalizedAudioSource(engineAudio, "TODO BLANK");
         else if (forwardInputSign == speedSign)
             audioManager.updateLocalizedAudioSource(engineAudio, "EngineRev");
         else if (forwardInputSign != speedSign && airtime == 0)
             audioManager.updateLocalizedAudioSource(engineAudio, "Brake");
         
         // TODO Find some way to check if sound has been updated or not, only play if it has
+        // TODO play
     }
 
     private void updateTimersAndEngineCap()
