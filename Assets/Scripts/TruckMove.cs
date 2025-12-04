@@ -110,7 +110,7 @@ public class TruckMove : MonoBehaviour
         idleAudio.spatialBlend = 1f;
         idleAudio.rolloffMode = AudioRolloffMode.Logarithmic;
         audioManager.updateLocalizedAudioSource(idleAudio, "EngineIdle");
-        idleAudio.Play();
+        //idleAudio.Play();
 
         engineAudio = gameObject.AddComponent<AudioSource>();
         engineAudio.playOnAwake = false;

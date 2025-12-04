@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10348773e5667043b7fd2ca79e258ac, type: 3}
   m_Name: sound-engine-idle
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
-  soundName: 
-  clip: {fileID: 0}
-  volume: 1
+  soundName: EngineIdle
+  clip: {fileID: 8300000, guid: 6a05544231950764c9223b0490323562, type: 3}
+  volume: 2
   pitch: 1
+  loop: 1

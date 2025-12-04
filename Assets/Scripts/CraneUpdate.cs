@@ -5,6 +5,8 @@ public class CraneUpdate : MonoBehaviour
 {
     // Referenced components
     public Rigidbody rigidBody;
+    public AudioSource audioSource;
+    public SoundEffect platformHum;
 
     // Constants, set in editor
     public Vector3 amplitude;      // End distance platform will move in either direction
@@ -32,6 +34,12 @@ public class CraneUpdate : MonoBehaviour
         
         isMoving = true;
         waitTimer = 0;
+
+        audioSource.clip = platformHum.clip;
+        audioSource.volume = platformHum.volume;
+        audioSource.pitch = platformHum.pitch;
+        audioSource.loop = platformHum.loop;
+        audioSource.Play();
     }
 
     void FixedUpdate()
@@ -56,6 +64,7 @@ public class CraneUpdate : MonoBehaviour
 
             isMoving = false;
             waitTimer = waitTime;
+            audioSource.Stop();
             return;
         }
 
@@ -69,6 +78,9 @@ public class CraneUpdate : MonoBehaviour
         // Decrement waitTimer and enter moving state if expired
         waitTimer -= Time.fixedDeltaTime;
         if (waitTimer <= 0f)
+        {
             isMoving = true;
+            audioSource.Play();
+        }
     }
 }

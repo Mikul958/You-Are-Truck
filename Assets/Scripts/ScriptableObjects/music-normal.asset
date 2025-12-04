@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicTrack
   musicName: Music
   clip: {fileID: 8300000, guid: c9f3aba6ee55bbd46aeca5b866703b34, type: 3}
-  volume: 0.5
+  volume: 0.2
   loop: 1

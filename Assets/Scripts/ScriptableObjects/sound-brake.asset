@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10348773e5667043b7fd2ca79e258ac, type: 3}
   m_Name: sound-brake
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
-  soundName: 
+  soundName: Brake
   clip: {fileID: 0}
   volume: 1
   pitch: 1
+  loop: 0

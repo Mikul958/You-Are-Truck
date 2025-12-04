@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10348773e5667043b7fd2ca79e258ac, type: 3}
   m_Name: sound-platform-hum
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
-  soundName: 
-  clip: {fileID: 0}
-  volume: 1
+  soundName: PlatformHum
+  clip: {fileID: 8300000, guid: 0a32b3638a043b642b964bc849eb4690, type: 3}
+  volume: 0.5
   pitch: 1
+  loop: 1
