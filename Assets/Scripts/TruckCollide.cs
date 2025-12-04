@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [DefaultExecutionOrder(0)]
 public class TruckCollide : MonoBehaviour
@@ -6,6 +7,14 @@ public class TruckCollide : MonoBehaviour
     // Referenced Game Objects and Components
     public TruckMove truckMove;
     public Destroy truckDestroy;
+    private AudioManager audioManager;
+    private AudioSource collisionAudio;
+
+    // Events to propagate for UI / camera
+    [HideInInspector]
+    public UnityEvent onGoalEntered;
+    [HideInInspector]
+    public UnityEvent onTruckDeath;
 
     // Instance Variables
     private Vector3 workingFloorNormal;
@@ -26,8 +35,20 @@ public class TruckCollide : MonoBehaviour
     private int nailMask;
     private int goalMask;
 
+    private float collisionSoundCooldown = 0.5f;
+    private float screechTimer;
+    private float bonkTimer;
+
     void Start()
     {
+        GameObject audioManagerObject = GameObject.FindGameObjectWithTag("AudioManager");
+        if (audioManagerObject != null)
+            audioManager = audioManagerObject.GetComponent<AudioManager>();
+        collisionAudio = gameObject.AddComponent<AudioSource>();
+        collisionAudio.playOnAwake = false;
+        collisionAudio.spatialBlend = 1f;
+        collisionAudio.rolloffMode = AudioRolloffMode.Logarithmic;
+        
         workingFloorNormal = Vector3.zero;
         floorTouched = false;
         workingPlatformVelocity = Vector3.zero;
@@ -45,13 +66,17 @@ public class TruckCollide : MonoBehaviour
         oilMask = 1 << LayerMask.NameToLayer("Oil");
         nailMask = 1 << LayerMask.NameToLayer("Nail");
         goalMask = 1 << LayerMask.NameToLayer("Goal");
+
+        screechTimer = collisionSoundCooldown;
+        bonkTimer = collisionSoundCooldown;
     }
 
     void FixedUpdate()
     {
         // Check if the truck is below the global death plane
-        if (transform.position.y < 0)
+        if (transform.position.y < 0f)
         {
+            onTruckDeath.Invoke();
             truckDestroy.kill();
             return;
         }
@@ -67,6 +92,14 @@ public class TruckCollide : MonoBehaviour
         workingFloorNormal = Vector3.zero;
         floorTouched = false;
         workingPlatformVelocity = Vector3.zero;
+
+        // Decrement timers
+        screechTimer -= Time.fixedDeltaTime;
+        if (screechTimer < 0f)
+            screechTimer = 0f;
+        bonkTimer -= Time.fixedDeltaTime;
+        if (bonkTimer < 0f)
+            bonkTimer = 0f;
     }
 
     // Solid collision checks
@@ -79,6 +112,7 @@ public class TruckCollide : MonoBehaviour
             checkForBoostPanel(collision);
         }
         checkForSolidOutOfBounds(collision);
+        checkForWall(collision);
     }
 
     private bool checkForDrivable(Collision collision)
@@ -91,9 +125,25 @@ public class TruckCollide : MonoBehaviour
         // Update airtime and wheels touching logic in TruckMove using layer of this collider
         int thisLayerMask = 1 << collision.GetContact(0).thisCollider.gameObject.layer;
         if ((thisLayerMask & truckWheelMask) > 0)
+        {
+            if (screechTimer <= 0 && truckMove.getAirtime() > 0 && (truckMove.getTotalVelocity().magnitude > truckMove.globalSpeedCap / 10))
+            {
+                audioManager.updateLocalizedAudioSource(collisionAudio, "TireScreech");
+                collisionAudio.Play();
+                screechTimer = collisionSoundCooldown;
+            }
             truckMove.resetAirtimeWheels();
+        }
         else
+        {
+            if (bonkTimer <= 0 && truckMove.getAirtime() > 0 && (truckMove.getTotalVelocity().magnitude > truckMove.globalSpeedCap / 10))
+            {
+                audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
+                collisionAudio.Play();
+                bonkTimer = collisionSoundCooldown;
+            }
             truckMove.resetAirtime();
+        }
 
         // Get the surface normal for each contact point and add it to total for this collision
         int contactPoints = 0;
@@ -128,7 +178,9 @@ public class TruckCollide : MonoBehaviour
 
     private void checkForStickyRoad(Collision collision)
     {
-        // TODO
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & stickyRoadMask) > 0)
+            truckMove.applyStickyRoad();
     }
 
     private void checkForBoostPanel(Collision collision)
@@ -142,9 +194,26 @@ public class TruckCollide : MonoBehaviour
     {
         int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
         if ((surfaceLayerMask & killExplodeMask) > 0)
+        {
+            onTruckDeath.Invoke();
             truckDestroy.destroyExplode();
+        }
         else if ((surfaceLayerMask & killSquishMask) > 0)
+        {
+            onTruckDeath.Invoke();
             truckDestroy.destroySquish();
+        }
+    }
+
+    private void checkForWall(Collision collision)
+    {
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & wallMask) > 0 && bonkTimer <= 0 && (truckMove.getTotalVelocity().magnitude > truckMove.globalSpeedCap / 10))
+        {
+            audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
+            collisionAudio.Play();
+            bonkTimer = collisionSoundCooldown;
+        }
     }
 
     // Non-solid collision checks
@@ -165,36 +234,27 @@ public class TruckCollide : MonoBehaviour
     private void checkForGoal(int collisionLayer)
     {
         if ((collisionLayer & goalMask) > 0)
-        {
-            Debug.Log("Level Complete!");
-            // TODO send to level manager
-        }
+            onGoalEntered.Invoke();
     }
     
     private void checkForOutOfBounds(int collisionLayer)
     {
         if ((collisionLayer & killMask) > 0)
         {
-            Debug.Log("Explode");
-            // TODO send kill to Destroy component
+            onTruckDeath.Invoke();
+            truckDestroy.kill();
         }
     }
 
     private void checkForOil(int collisionLayer)
     {
         if ((collisionLayer & oilMask) > 0)
-        {
-            Debug.Log("Oil encountered");
             truckMove.applyOil();
-        }
     }
 
     private void checkForNail(int collisionLayer)
     {
         if ((collisionLayer & nailMask) > 0)
-        {
-            Debug.Log("Nails encountered");
             truckMove.applyNail();
-        }
     }
 }

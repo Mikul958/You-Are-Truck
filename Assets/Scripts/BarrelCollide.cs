@@ -17,8 +17,9 @@ public class BarrelCollide : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.relativeVelocity.magnitude);
         if (collision.relativeVelocity.magnitude >= criticalSpeed)
+            barrelDestroy.destroyExplode();
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("KillExplode") || collision.collider.gameObject.layer == LayerMask.NameToLayer("KillSquish"))
             barrelDestroy.destroyExplode();
     }
 }
