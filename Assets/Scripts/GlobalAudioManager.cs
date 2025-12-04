@@ -1,0 +1,115 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class GlobalAudioManager : MonoBehaviour
+{
+    public static GlobalAudioManager instance;
+
+    [SerializeField]
+    private SoundEffect[] sfxList;
+    private Dictionary<string, SoundEffect> sfx;
+
+    [SerializeField]
+    private MusicTrack[] musicList;
+    private Dictionary<string, MusicTrack> music;
+
+    private int sourcePoolSize = 3;
+    private List<AudioSource> sourcePool;
+    private AudioSource musicSource;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        sfx = new Dictionary<string, SoundEffect>();
+        foreach (SoundEffect sound in sfxList)
+            sfx.Add(sound.name, sound);
+        
+        music = new Dictionary<string, MusicTrack>();
+        foreach (MusicTrack song in musicList)
+            music.Add(song.name, song);
+        
+        sourcePool = new List<AudioSource>();
+        for (int i=0; i < sourcePoolSize; i++)
+            sourcePool.Add(initializeAudioSource());
+        musicSource = initializeAudioSource();
+    }
+
+    private AudioSource initializeAudioSource()
+    {
+        AudioSource newSource = gameObject.AddComponent<AudioSource>();
+        newSource.playOnAwake = false;
+        return newSource;
+    }
+
+    #nullable enable
+    public void playSoundEffect(string soundName)
+    {
+        if (!sfx.ContainsKey(soundName))
+            return;
+        SoundEffect sound = sfx[soundName];
+        
+        #nullable enable
+        AudioSource? openSource = getOpenSource();
+        if (openSource == null)
+            return;
+        #nullable disable
+        
+        openSource.clip = sound.clip;
+        openSource.volume = sound.volume;
+        openSource.pitch = sound.pitch;
+        openSource.Play();
+    }
+
+    #nullable enable
+    public void playSoundEffect(SoundEffect sound)
+    {
+        #nullable enable
+        AudioSource? openSource = getOpenSource();
+        if (openSource == null)
+            return;
+        #nullable disable
+        
+        openSource.clip = sound.clip;
+        openSource.volume = sound.volume;
+        openSource.pitch = sound.pitch;
+        openSource.Play();
+    }
+
+    public void playMusic(string musicName)
+    {
+        if (!sfx.ContainsKey(musicName))
+            return;
+        MusicTrack song = music[musicName];
+        
+        stopMusic();
+        musicSource.clip = song.clip;
+        musicSource.volume = song.volume;
+        musicSource.loop = song.loop;
+        musicSource.Play();
+    }
+
+    public void stopMusic()
+    {
+        if (musicSource.isPlaying)
+            musicSource.Stop();
+    }
+
+    // TODO try crossfade?
+
+    #nullable enable
+    private AudioSource? getOpenSource()
+    {
+        foreach (AudioSource source in sourcePool)
+        {
+            if (!source.isPlaying)
+                return source;
+        }
+        return null;
+    }
+    #nullable disable
+}
