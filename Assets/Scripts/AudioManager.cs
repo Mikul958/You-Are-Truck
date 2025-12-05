@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
         musicSource = initializeAudioSource();
 
         // Start normal background music
-        // playMusic("Music");
+        playMusic("Music");
     }
 
     private AudioSource initializeAudioSource()

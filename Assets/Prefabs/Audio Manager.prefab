@@ -46,6 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GlobalAudioManager
   sfxList:
   - {fileID: 11400000, guid: 4917eeeb57c235647b7e3e4a710fddee, type: 2}
+  - {fileID: 11400000, guid: 905f671ee52b994409e92001ecdfcef6, type: 2}
+  - {fileID: 11400000, guid: 3a44b0600e971fe40a825c780ba2fb68, type: 2}
+  - {fileID: 11400000, guid: 6feabce4c280c854da7c92e059ac5397, type: 2}
+  - {fileID: 11400000, guid: f08bb6d98350e7a4f917678e18612fef, type: 2}
+  - {fileID: 11400000, guid: 1f84d891562ab9241895a43c56ac7caa, type: 2}
+  - {fileID: 11400000, guid: 2d8702e3d51042746857fd0f3bf89cb4, type: 2}
+  - {fileID: 11400000, guid: 2ce440aeda6d61e4dbf94bfc3c565005, type: 2}
+  - {fileID: 11400000, guid: 80f0eef1150c2f44aaa250671bff149b, type: 2}
   musicList:
   - {fileID: 11400000, guid: 2562a95823d3e28438ea2b9481e23387, type: 2}
   - {fileID: 11400000, guid: 0eb7e7b826af0f04a9aa44d8ba13bfad, type: 2}

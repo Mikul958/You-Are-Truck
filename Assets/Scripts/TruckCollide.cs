@@ -74,7 +74,7 @@ public class TruckCollide : MonoBehaviour
     void FixedUpdate()
     {
         // Check if the truck is below the global death plane
-        if (transform.position.y < 0f)
+        if (transform.position.y < -200f)
         {
             onTruckDeath.Invoke();
             truckDestroy.kill();
@@ -162,7 +162,7 @@ public class TruckCollide : MonoBehaviour
         // Add averaged surface normal to working total and signal floor was touched on this tick
         if (contactPoints > 0)
         {
-            workingFloorNormal = (workingFloorNormal + combinedNormal).normalized;
+            workingFloorNormal = (workingFloorNormal + combinedNormal.normalized).normalized;
             floorTouched = true;
         }
         
@@ -213,6 +213,8 @@ public class TruckCollide : MonoBehaviour
             audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
             collisionAudio.Play();
             bonkTimer = collisionSoundCooldown;
+
+            Debug.Log("Hit Wall");
         }
     }
 
