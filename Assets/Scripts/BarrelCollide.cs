@@ -22,4 +22,10 @@ public class BarrelCollide : MonoBehaviour
         if (collision.collider.gameObject.layer == LayerMask.NameToLayer("KillExplode") || collision.collider.gameObject.layer == LayerMask.NameToLayer("KillSquish"))
             barrelDestroy.destroyExplode();
     }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.layer == LayerMask.NameToLayer("KillExplode"))
+            barrelDestroy.destroyExplode();
+    }
 }

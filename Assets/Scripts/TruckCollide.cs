@@ -74,7 +74,7 @@ public class TruckCollide : MonoBehaviour
     void FixedUpdate()
     {
         // Check if the truck is below the global death plane
-        if (transform.position.y < 0f)
+        if (transform.position.y < -200f)
         {
             onTruckDeath.Invoke();
             truckDestroy.kill();
@@ -150,8 +150,8 @@ public class TruckCollide : MonoBehaviour
         Vector3 combinedNormal = Vector3.zero;
         foreach (ContactPoint contactPoint in collision.contacts)  // TODO move contacts to GetContacts
         {
-            Ray ray = new Ray(contactPoint.point + contactPoint.normal * 0.01f, -contactPoint.normal);
-            if (Physics.Raycast(ray, out RaycastHit hit, 0.1f))
+            Ray ray = new Ray(contactPoint.point + contactPoint.normal * 0.1f, -contactPoint.normal);
+            if (Physics.Raycast(ray, out RaycastHit hit, 0.1f, (roadMask | stickyRoadMask | boostPanelMask)))
             {
                 Vector3 surfaceNormal = hit.normal;  // This is the “true” surface normal
                 contactPoints++;
@@ -162,7 +162,7 @@ public class TruckCollide : MonoBehaviour
         // Add averaged surface normal to working total and signal floor was touched on this tick
         if (contactPoints > 0)
         {
-            workingFloorNormal = (workingFloorNormal + combinedNormal).normalized;
+            workingFloorNormal += combinedNormal.normalized;
             floorTouched = true;
         }
         
@@ -213,6 +213,8 @@ public class TruckCollide : MonoBehaviour
             audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
             collisionAudio.Play();
             bonkTimer = collisionSoundCooldown;
+
+            Debug.Log("Hit Wall");
         }
     }
 
@@ -243,6 +245,11 @@ public class TruckCollide : MonoBehaviour
         {
             onTruckDeath.Invoke();
             truckDestroy.kill();
+        }
+        else if ((collisionLayer & killExplodeMask) > 0)
+        {
+            onTruckDeath.Invoke();
+            truckDestroy.destroyExplode();
         }
     }
 

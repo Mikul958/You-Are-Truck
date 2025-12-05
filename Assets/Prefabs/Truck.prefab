@@ -298,7 +298,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1.6
-  m_Center: {x: 0, y: 0.85, z: 1.7}
+  m_Center: {x: 0, y: 1.55, z: 1.7}
 --- !u!135 &1538047378448944264
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -319,7 +319,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: -0.4, y: 0.3, z: -0.4}
+  m_Center: {x: -0.4, y: 1, z: -0.4}
 --- !u!135 &2574379590566093783
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: 0.4, y: 0.3, z: -0.4}
+  m_Center: {x: 0.4, y: 1, z: -0.4}
 --- !u!135 &4671960170054400091
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: 0.4, y: 0.3, z: -2.2}
+  m_Center: {x: 0.4, y: 1, z: -2.2}
 --- !u!135 &8597537273770588223
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 1
-  m_Center: {x: -0.4, y: 0.3, z: -2.2}
+  m_Center: {x: -0.4, y: 1, z: -2.2}
 --- !u!1 &1720489814609828251
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,7 +805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5787316682958827516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.68, y: 11.33, z: -19.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -846,7 +846,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 32
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &753885537904220585
 MonoBehaviour:
@@ -875,9 +875,9 @@ MonoBehaviour:
   rigidBody: {fileID: 266273360041803184}
   inputManager: {fileID: 753885537904220585}
   wheelAnimator: {fileID: 1832951887439249530}
-  topEngineSpeed: 80
-  boostSpeedCapMultiplier: 1.5
-  nailSpeedCapMultiplier: 0.6
+  topEngineSpeed: 60
+  boostSpeedCapMultiplier: 1.2
+  nailSpeedCapMultiplier: 0.5
   globalSpeedCap: 150
   baseAccel: 20
   boostAccel: 60
@@ -887,16 +887,16 @@ MonoBehaviour:
   externalWheelDecel: 70
   externalDecelMultiplier: 0.999
   platformAccel: 30
-  minRotationSpeed: 5
+  minRotationSpeed: 15
   maxRotationSpeed: 75
   minTurnThreshold: 2
   maxTurnThreshold: 40
-  maxSlipAngle: 37.5
-  slipDeviationSpeed: 60
-  jumpSpeed: 15
-  groundAlignmentSpeed: 60
-  maxStickyRoadSpeed: 2.5
-  stickyRoadDistance: 5
+  maxSlipAngle: 25
+  slipDeviationSpeed: 30
+  jumpSpeed: 16
+  groundAlignmentSpeed: 90
+  maxStickyRoadSpeed: 2
+  stickyRoadDistance: 7.5
   airtimeThreshold: 0.5
   airtimeTurnMultiplier: 0.2
   boostDuration: 1
@@ -952,3 +952,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d4134df25beac4c81e58feaaaa182b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  explosionPrefab: {fileID: 8516818488163696612, guid: 0b2d8252f96c1534d8b5b057b91bcc75, type: 3}

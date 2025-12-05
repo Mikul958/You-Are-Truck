@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Destroy : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+    
     public void kill()
     {
         Debug.Log(gameObject.name + " killed");
@@ -19,7 +21,7 @@ public class Destroy : MonoBehaviour
     {
         Debug.Log(gameObject.name + " exploded");
 
-        // TODO spawn explosion and coroutine
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
@@ -27,7 +29,8 @@ public class Destroy : MonoBehaviour
     {
         Debug.Log(gameObject.name + " squished");
 
-        // TODO squish, spawn explosion, and coroutine
+        // TODO squish effect and coroutine
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
