@@ -877,7 +877,7 @@ MonoBehaviour:
   wheelAnimator: {fileID: 1832951887439249530}
   topEngineSpeed: 60
   boostSpeedCapMultiplier: 1.2
-  nailSpeedCapMultiplier: 0.6
+  nailSpeedCapMultiplier: 0.5
   globalSpeedCap: 150
   baseAccel: 20
   boostAccel: 60
@@ -887,12 +887,12 @@ MonoBehaviour:
   externalWheelDecel: 70
   externalDecelMultiplier: 0.999
   platformAccel: 30
-  minRotationSpeed: 10
+  minRotationSpeed: 15
   maxRotationSpeed: 75
   minTurnThreshold: 2
   maxTurnThreshold: 40
-  maxSlipAngle: 37.5
-  slipDeviationSpeed: 60
+  maxSlipAngle: 25
+  slipDeviationSpeed: 30
   jumpSpeed: 16
   groundAlignmentSpeed: 90
   maxStickyRoadSpeed: 2
@@ -952,3 +952,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d4134df25beac4c81e58feaaaa182b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  explosionPrefab: {fileID: 8516818488163696612, guid: 0b2d8252f96c1534d8b5b057b91bcc75, type: 3}

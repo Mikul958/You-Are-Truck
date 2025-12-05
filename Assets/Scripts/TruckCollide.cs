@@ -246,6 +246,11 @@ public class TruckCollide : MonoBehaviour
             onTruckDeath.Invoke();
             truckDestroy.kill();
         }
+        else if ((collisionLayer & killExplodeMask) > 0)
+        {
+            onTruckDeath.Invoke();
+            truckDestroy.destroyExplode();
+        }
     }
 
     private void checkForOil(int collisionLayer)
