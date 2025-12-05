@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 49694465}
   - component: {fileID: 49694464}
   m_Layer: 5
-  m_Name: Resume Button
+  m_Name: Play Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,7 +464,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2035572071}
         m_TargetAssemblyTypeName: GameUI, Assembly-CSharp
-        m_MethodName: clickSettings
+        m_MethodName: clickExit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
