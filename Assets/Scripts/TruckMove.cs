@@ -365,6 +365,9 @@ public class TruckMove : MonoBehaviour
 
     private void calculateJump()
     {
+        Debug.Log("Airtime: " + airtime);
+        Debug.Log("Airtime Wheels: " + airtimeWheels); 
+        
         // Re-enable jump if player touches a drivable surface and is not holding the jump button
         if (airtime == 0 && !inputManager.isJumpPressed())
             canJump = true;
@@ -426,6 +429,7 @@ public class TruckMove : MonoBehaviour
     {
         // Update timers
         airtime += Time.fixedDeltaTime;
+        airtimeWheels += Time.fixedDeltaTime;
         boostTimer -= Time.fixedDeltaTime;
         if (boostTimer < 0)
             boostTimer = 0;
