@@ -150,8 +150,8 @@ public class TruckCollide : MonoBehaviour
         Vector3 combinedNormal = Vector3.zero;
         foreach (ContactPoint contactPoint in collision.contacts)  // TODO move contacts to GetContacts
         {
-            Ray ray = new Ray(contactPoint.point + contactPoint.normal * 0.01f, -contactPoint.normal);
-            if (Physics.Raycast(ray, out RaycastHit hit, 0.1f))
+            Ray ray = new Ray(contactPoint.point + contactPoint.normal * 0.1f, -contactPoint.normal);
+            if (Physics.Raycast(ray, out RaycastHit hit, 0.1f, (roadMask | stickyRoadMask | boostPanelMask)))
             {
                 Vector3 surfaceNormal = hit.normal;  // This is the “true” surface normal
                 contactPoints++;

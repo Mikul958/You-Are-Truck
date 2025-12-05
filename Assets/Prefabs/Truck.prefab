@@ -895,8 +895,8 @@ MonoBehaviour:
   slipDeviationSpeed: 60
   jumpSpeed: 16
   groundAlignmentSpeed: 60
-  maxStickyRoadSpeed: 2.5
-  stickyRoadDistance: 5
+  maxStickyRoadSpeed: 2
+  stickyRoadDistance: 7.5
   airtimeThreshold: 0.5
   airtimeTurnMultiplier: 0.2
   boostDuration: 1
