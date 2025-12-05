@@ -162,7 +162,7 @@ public class TruckCollide : MonoBehaviour
         // Add averaged surface normal to working total and signal floor was touched on this tick
         if (contactPoints > 0)
         {
-            workingFloorNormal = (workingFloorNormal + combinedNormal.normalized).normalized;
+            workingFloorNormal += combinedNormal.normalized;
             floorTouched = true;
         }
         
