@@ -133,6 +133,13 @@ public class LevelManager : MonoBehaviour
     private void nextLevel()
     {
         if (LevelData.instance.incrementCurrentLevelOrExit())
+        {
             SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
+        }
+        else
+        {
+            LevelData.instance.unsetCurrentLevel();
+            SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
+        }
     }
 }
