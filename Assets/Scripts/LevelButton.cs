@@ -20,6 +20,7 @@ public class LevelButton : MonoBehaviour
         assignPathRefs(pathTransform);
 
         updateLevelButton();
+        updateLevelPaths();
     }
 
     private void assignButtonRefs(Transform buttonTransform)
@@ -41,21 +42,26 @@ public class LevelButton : MonoBehaviour
 
     private void updateLevelButton()
     {
-        if (levelNumber <= 1)
+        if (levelNumber <= 1 || button == null)
             return;
         LevelData.Level previousLevelInfo = LevelData.instance.getLevelDataAt(levelNumber - 1);
         if (previousLevelInfo.isComplete)
             return;
         
-        if (button != null)
-        {
-            Button buttonInteract = button.GetComponent<Button>();
-            if (buttonInteract != null)
-                buttonInteract.interactable = false;
-            Image buttonImage = button.GetComponent<Image>();
-            if (buttonImage != null)
-                setHalfOpacity(buttonImage);
-        }
+        Button buttonInteract = button.GetComponent<Button>();
+        if (buttonInteract != null)
+            buttonInteract.interactable = false;
+        Image buttonImage = button.GetComponent<Image>();
+        if (buttonImage != null)
+            setHalfOpacity(buttonImage);
+    }
+
+    private void updateLevelPaths()
+    {
+        LevelData.Level currentLevelInfo = LevelData.instance.getLevelDataAt(levelNumber);
+        if (currentLevelInfo.isComplete)
+            return;
+        
         foreach (Image pathImage in buttonPaths)
             setHalfOpacity(pathImage);
     }

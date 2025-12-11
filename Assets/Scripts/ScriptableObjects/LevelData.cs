@@ -5,17 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "level-data", menuName = "Levels/LevelData")]
 public class LevelData : ScriptableObject
 {
-    private static LevelData _instance;
-    public static LevelData instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = Resources.Load<LevelData>("level-data");
-            return _instance;
-        }
-    }
-
     [Serializable]
     public class Level
     {
@@ -40,6 +29,27 @@ public class LevelData : ScriptableObject
 
     [SerializeField] private Level[] levels = new Level[LEVEL_COUNT];
     private int currentLevel = -1;
+
+    private static LevelData _instance;
+    public static LevelData instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = new LevelData();
+            return _instance;
+        }
+    }
+
+    // Generates default level data before attempting file load so that default data can be saved if levels.json does not exist
+    private LevelData()
+    {
+        foreach (Level level in levels)
+        {
+            level.isComplete = false;
+            level.bestTime = -1;
+        }
+    }
     
     void OnEnable()
     {
