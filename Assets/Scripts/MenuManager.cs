@@ -48,7 +48,7 @@ public class MenuManager : MonoBehaviour
 
     private void enterLevel(int levelNumber)
     {
-        if (levelNumber < 0)
+        if (levelNumber <= 0)
             SceneManager.LoadScene("TestScene");  // TODO remove this part
         else
         {
