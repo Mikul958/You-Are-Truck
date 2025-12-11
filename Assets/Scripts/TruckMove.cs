@@ -365,9 +365,6 @@ public class TruckMove : MonoBehaviour
 
     private void calculateJump()
     {
-        Debug.Log("Airtime: " + airtime);
-        Debug.Log("Airtime Wheels: " + airtimeWheels); 
-        
         // Re-enable jump if player touches a drivable surface and is not holding the jump button
         if (airtime == 0 && !inputManager.isJumpPressed())
             canJump = true;
