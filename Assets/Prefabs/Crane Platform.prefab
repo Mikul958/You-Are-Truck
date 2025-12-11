@@ -64,7 +64,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4681156688626756135}
   - component: {fileID: 3721003330070204473}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Road Collision
   m_TagString: CranePlatform
   m_Icon: {fileID: 0}
