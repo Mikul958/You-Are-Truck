@@ -59,19 +59,20 @@ public class TruckMove : MonoBehaviour
     // Instance variables
 
     // Current velocity values
-    private Vector3 facingDirection;   // Facing direction of the vehicle at any time
-    private Vector3 floorNormal;       // Cumulative normal of all "floor type" colliders being touched by wheels
-    private Vector3 engineDirection;   // Direction of engine velocity, only updated when on the ground
-    private float engineSpeed;         // Signed scalar, positive = forwards, negative = backwards
-    private int speedSign;             // Stored sign of engine speed to cut down on sign checks
-    private float slipTurnOffset;      // Current offset of velocity from facing angle
-    private Vector3 externalVelocity;  // Sum of all external velocity sources
-    private float externalSpeed;       // Unsigned scalar, magnitude of externalVelocity
-    private Vector3 stickyRoadAdjust;  // Instantaneously velocity applied by sticky road, does not persist across updates
-    private Vector3 platformVelocity;  // Currently velocity applied by moving platforms
+    private Vector3 facingDirection;         // Facing direction of the vehicle at any time
+    private Vector3 floorNormal;             // Cumulative normal of all "floor type" colliders being touched by wheels
+    private Vector3 baseEngineDirection;     // Direction of engine velocity, calculated as facing direction along last touched floor plane(s)
+    private Vector3 realEngineDirection;     // Engine direction with slip applied
+    private float engineSpeed;               // Signed scalar, positive = forwards, negative = backwards
+    private int speedSign;                   // Stored sign of engine speed to cut down on sign checks
+    private float slipTurnOffset;            // Current offset of velocity from facing angle
+    private Vector3 externalVelocity;        // Sum of all external velocity sources
+    private float externalSpeed;             // Unsigned scalar, magnitude of externalVelocity
+    private Vector3 stickyRoadAdjust;        // Instantaneously velocity applied by sticky road, does not persist across updates
+    private Vector3 platformVelocity;        // Currently velocity applied by moving platforms
     private Vector3 platformVelocityTarget;  // Target value, updated by TruckCollide
-    private Vector3 appliedVelocity;   // Total velocity applied on this tick, used to derive physics delta on next tick
-    private Vector3 physicsDelta;      // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
+    private Vector3 appliedVelocity;         // Total velocity applied on this tick, used to derive physics delta on next tick
+    private Vector3 physicsDelta;            // Velocity applied by Unity's physics engine, incorporated into other vectors each tick
 
     // Vehicle state
     private float currentEngineCap; // Current effective speed cap (m/s)
@@ -119,7 +120,8 @@ public class TruckMove : MonoBehaviour
         
         facingDirection = rigidBody.rotation * Vector3.forward;
         floorNormal = rigidBody.rotation * Vector3.up;
-        engineDirection = facingDirection;
+        baseEngineDirection = facingDirection;
+        realEngineDirection = baseEngineDirection;
         engineSpeed = 0;
         speedSign = 0;
         slipTurnOffset = 0;
@@ -161,7 +163,7 @@ public class TruckMove : MonoBehaviour
         physicsDelta = rigidBody.linearVelocity - appliedVelocity;
 
         // Add portion of delta facing along engine direction to engine speed, disallowing any velocity additions over cap
-        float engineSpeedDelta = Vector3.Dot(physicsDelta, engineDirection);
+        float engineSpeedDelta = Vector3.Dot(physicsDelta, baseEngineDirection);
         if (Math.Abs(engineSpeed + engineSpeedDelta) <= currentEngineCap)
             engineSpeed += engineSpeedDelta;
         else if (Math.Abs(engineSpeed) < currentEngineCap)
@@ -172,7 +174,7 @@ public class TruckMove : MonoBehaviour
             speedSign = 0;
 
         // Add portion of delta orthogonal to engine direction to external velocity and update cached speed
-        Vector3 externalVelocityDelta = physicsDelta - Vector3.Project(physicsDelta, engineDirection);
+        Vector3 externalVelocityDelta = physicsDelta - Vector3.Project(physicsDelta, baseEngineDirection);
         externalVelocity += externalVelocityDelta;
         externalSpeed = externalVelocity.magnitude;
 
@@ -187,11 +189,11 @@ public class TruckMove : MonoBehaviour
             // Update engine direction to match facing direction along plane of floor normal
             Vector3 targetEngineDirection = Vector3.ProjectOnPlane(facingDirection, floorNormal).normalized;
             if (targetEngineDirection.magnitude > zeroThreshold)
-                engineDirection = targetEngineDirection;
+                baseEngineDirection = targetEngineDirection;
         }
 
         // Update rigidBody rotation towards current engineDirection and floorNormal at floorAlignmentSpeed
-        Quaternion targetRotation = Quaternion.LookRotation(engineDirection, floorNormal);
+        Quaternion targetRotation = Quaternion.LookRotation(baseEngineDirection, floorNormal);
         float angleOffset = Quaternion.Angle(rigidBody.rotation, targetRotation);
         if (angleOffset > zeroThreshold)
         {
@@ -296,31 +298,41 @@ public class TruckMove : MonoBehaviour
         if (airtime > airtimeThreshold)
             targetTurnAngle *= airtimeTurnMultiplier;
 
-        // Apply rotation to rigidBody based on its local up vector
+        // Apply rotation to rigidBody
         Quaternion vehicleRotationOffset = Quaternion.Euler(0f, targetTurnAngle, 0f);
         rigidBody.MoveRotation(rigidBody.rotation * vehicleRotationOffset);
 
-        // Calculate true turn angle based on oil state (note that engine direction is updated based on facing direction earlier on, so offset is applied each update)
-        // TODO this is not great at the moment, seems to apply offset regardless of engine speed, see if it can be fixed
-        float targetOffset = 0f;
+        // Apply handling rotation to engine direction
+        Quaternion engineRotationUpdate = Quaternion.AngleAxis(targetTurnAngle, floorNormal);
+        baseEngineDirection = engineRotationUpdate * baseEngineDirection;  // realEngineDirection updated in calculateSlip()
+
+        // Apply handling rotation to external velocity direction
+        Quaternion externalRotationUpdate = Quaternion.AngleAxis(targetTurnAngle, Vector3.up);
+        Vector3 horizontalExternalVelocity = new Vector3(externalVelocity.x, 0, externalVelocity.z);
+        Vector3 verticalExternalVelocity = new Vector3(0, externalVelocity.y, 0);
+
+        horizontalExternalVelocity = externalRotationUpdate * horizontalExternalVelocity;
+        externalVelocity = horizontalExternalVelocity + verticalExternalVelocity;
+
+        // Apply slip effects
+        calculateSlip();
+    }
+
+    private void calculateSlip()
+    {
+        // Calculate target slip angle based on oil state
+        float targetSlipAngle = 0f;
         if (oilTimer > 0f)
-            targetOffset = maxSlipAngle * inputManager.getSidewaysInputSign();
-        float offsetDiff = Math.Abs(targetOffset - slipTurnOffset);
-        if (offsetDiff > zeroThreshold)
-            slipTurnOffset = Mathf.Lerp(slipTurnOffset, targetOffset, slipDeviationSpeed / offsetDiff * Time.fixedDeltaTime);
-
-        // Apply rotation to engine velocity based on calculated floor normal (only if engineDirection was updated by ground on this frame)
-        float overallTurnAngle = targetTurnAngle - (airtime == 0 ? slipTurnOffset : 0);
-        Quaternion engineRotationOffset = Quaternion.AngleAxis(overallTurnAngle, floorNormal);
-        engineDirection = engineRotationOffset * engineDirection;
-
-        // Apply rotation around global up vector to horizontal component only of external velocity
-        Quaternion externalRotationOffset = Quaternion.AngleAxis(overallTurnAngle, Vector3.up);
-        Vector3 verticalExternalVelocity = Vector3.Project(externalVelocity, Vector3.up);
-        Vector3 horizontalExternalVelocity = externalVelocity - verticalExternalVelocity;
-
-        horizontalExternalVelocity = externalRotationOffset * horizontalExternalVelocity;
-        externalVelocity = verticalExternalVelocity + horizontalExternalVelocity;
+            targetSlipAngle = -1 * maxSlipAngle * inputManager.getSidewaysInputSign() * speedSign;
+        
+        // Update current slipTurnOffset if grounded, otherwise keep same slip angle
+        float offsetDiff = Math.Abs(targetSlipAngle - slipTurnOffset);
+        if (airtime == 0 && offsetDiff > zeroThreshold)
+            slipTurnOffset = Mathf.Lerp(slipTurnOffset, targetSlipAngle, slipDeviationSpeed / offsetDiff * Time.fixedDeltaTime);
+        
+        // Apply change in rotation to realEngineDirection
+        Quaternion slipRotationOffset = Quaternion.AngleAxis(slipTurnOffset, floorNormal);
+        realEngineDirection = slipRotationOffset * baseEngineDirection;
     }
 
     private void calculateStickyRoad()
@@ -365,9 +377,6 @@ public class TruckMove : MonoBehaviour
 
     private void calculateJump()
     {
-        Debug.Log("Airtime: " + airtime);
-        Debug.Log("Airtime Wheels: " + airtimeWheels); 
-        
         // Re-enable jump if player touches a drivable surface and is not holding the jump button
         if (airtime == 0 && !inputManager.isJumpPressed())
             canJump = true;
@@ -397,7 +406,7 @@ public class TruckMove : MonoBehaviour
     private void applyCappedVelocityUpdates()
     {
         // Calculate applied velocity for this tick and cap if needed
-        appliedVelocity = engineSpeed * engineDirection + externalVelocity + platformVelocity;
+        appliedVelocity = engineSpeed * realEngineDirection + externalVelocity + platformVelocity;
         float newSpeed = appliedVelocity.magnitude;
         if (newSpeed > globalSpeedCap)
             appliedVelocity *= globalSpeedCap / newSpeed;
@@ -496,7 +505,7 @@ public class TruckMove : MonoBehaviour
     }
     public Vector3 getEngineDirection()
     {
-        return engineDirection;  // For camera follow
+        return realEngineDirection;  // For camera follow
     }
 
     public Vector3 getFloorNormal()
