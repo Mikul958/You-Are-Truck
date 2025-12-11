@@ -48,11 +48,13 @@ public class MenuManager : MonoBehaviour
 
     private void enterLevel(int levelNumber)
     {
-        // TODO prepare level data / saving when created, remove test scene when done
         if (levelNumber < 0)
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("TestScene");  // TODO remove this part
         else
+        {
+            LevelData.instance.setCurrentLevel(levelNumber);
             SceneManager.LoadScene("Level " + levelNumber);
+        }
     }
 
     private void exitSettings()

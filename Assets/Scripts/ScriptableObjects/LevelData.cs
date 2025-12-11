@@ -25,7 +25,7 @@ public class LevelData : ScriptableObject
         public Level()
         {
             isComplete = false;
-            bestTime = 0;
+            bestTime = -1;
         }
 
         public Level(bool isComplete, int bestTime)
@@ -81,6 +81,11 @@ public class LevelData : ScriptableObject
         if (levelNumber > 0 && levelNumber - 1 < LEVEL_COUNT)
             return levels[levelNumber - 1];
         throw new IndexOutOfRangeException("Level number " + levelNumber + " out of range");
+    }
+
+    public int getCurrentLevelNumber()
+    {
+        return currentLevel;
     }
 
     public Level getCurrentLevel()
