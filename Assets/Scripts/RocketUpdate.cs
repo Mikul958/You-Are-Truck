@@ -47,6 +47,13 @@ public class RocketUpdate : MonoBehaviour
 
     private void updateWait()
     {
+        if (bossTruck == null)
+        {
+            state = 1;
+            time = 0f;
+            return;
+        }
+        
         // Update position and rotation to sit in boss truck launcher
         transform.position = bossTruck.transform.position + bossTruck.transform.rotation * startOffset;
         transform.rotation = bossTruck.transform.rotation * Quaternion.Euler(startAngleOffset);
