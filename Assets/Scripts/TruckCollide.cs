@@ -36,6 +36,7 @@ public class TruckCollide : MonoBehaviour
     private int oilMask;
     private int nailMask;
     private int goalMask;
+    private int bossWeakSpotMask;
     private int cameraTriggerMask;
 
     private float collisionSoundCooldown = 0.5f;
@@ -69,6 +70,7 @@ public class TruckCollide : MonoBehaviour
         oilMask = 1 << LayerMask.NameToLayer("Oil");
         nailMask = 1 << LayerMask.NameToLayer("Nail");
         goalMask = 1 << LayerMask.NameToLayer("Goal");
+        bossWeakSpotMask = 1 << LayerMask.NameToLayer("BossWeakSpot");
         cameraTriggerMask = 1 << LayerMask.NameToLayer("CameraTrigger");
 
         screechTimer = collisionSoundCooldown;
@@ -81,7 +83,6 @@ public class TruckCollide : MonoBehaviour
         if (transform.position.y < -200f)
         {
             onTruckDeath.Invoke();
-            truckDestroy.kill();
             return;
         }
         
@@ -117,6 +118,7 @@ public class TruckCollide : MonoBehaviour
         }
         checkForSolidOutOfBounds(collision);
         checkForWall(collision);
+        checkForBossHit(collision);
     }
 
     private bool checkForDrivable(Collision collision)
@@ -219,8 +221,16 @@ public class TruckCollide : MonoBehaviour
             audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
             collisionAudio.Play();
             bonkTimer = collisionSoundCooldown;
+        }
+    }
 
-            Debug.Log("Hit Wall");
+    private void checkForBossHit(Collision collision)
+    {
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & bossWeakSpotMask) > 0)
+        {
+            Vector3 knockbackNormal = collision.GetContact(0).normal;
+            truckMove.applyKnockback(knockbackNormal);
         }
     }
 
@@ -257,7 +267,6 @@ public class TruckCollide : MonoBehaviour
         if ((collisionLayer & killMask) > 0)
         {
             onTruckDeath.Invoke();
-            truckDestroy.kill();
         }
         else if ((collisionLayer & killExplodeMask) > 0)
         {

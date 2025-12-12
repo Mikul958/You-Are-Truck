@@ -897,6 +897,7 @@ MonoBehaviour:
   groundAlignmentSpeed: 90
   maxStickyRoadSpeed: 2
   stickyRoadDistance: 7.5
+  bossKnockbackStrength: 16
   airtimeThreshold: 0.5
   airtimeTurnMultiplier: 0.2
   boostDuration: 1
@@ -920,6 +921,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onTruckDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onCameraTrigger:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1832951887439249530
