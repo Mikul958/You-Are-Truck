@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d4134df25beac4c81e58feaaaa182b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Destroy
-  explosionPrefab: {fileID: 8516818488163696612, guid: 0b2d8252f96c1534d8b5b057b91bcc75, type: 3}
+  explosionPrefab: {fileID: 8724590237953512305, guid: 0b2d8252f96c1534d8b5b057b91bcc75, type: 3}
 --- !u!114 &7261480304446448680
 MonoBehaviour:
   m_ObjectHideFlags: 0
