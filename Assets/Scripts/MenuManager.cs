@@ -20,13 +20,13 @@ public class MenuManager : MonoBehaviour
         // Subscribe to necessary UI events
         uiScript.onLevelSelectClicked.AddListener(this.toLevelSelect);
         uiScript.onSettingsClicked.AddListener(this.toSettings);
-        uiScript.onHow2Play.AddListener(this.toHow2Play);
-        uiScript.onAboutMenu.AddListener(this.toAboutMenu);
+        uiScript.onHowToPlayClicked.AddListener(this.toHowToPlay);
+        uiScript.onAboutMenuClicked.AddListener(this.toAboutMenu);
         uiScript.onExitClicked.AddListener(this.exitGame);
         uiScript.onLevelSelectExitClicked.AddListener(this.exitLevelSelect);
         uiScript.onLevelClicked.AddListener(this.enterLevel);
         uiScript.onSettingsExitClicked.AddListener(this.exitSettings);
-        uiScript.onHow2PlayExitClicked.AddListener(this.exitHow2Play);
+        uiScript.onHowToPlayExitClicked.AddListener(this.exitHowToPlay);
         uiScript.onAboutMenuExitClicked.AddListener(this.exitAboutMenu);
 ;    }
 
@@ -40,9 +40,9 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Settings");
     }
 
-    private void toHow2Play()
+    private void toHowToPlay()
     {
-        SceneManager.LoadScene("How 2 Play");
+        SceneManager.LoadScene("How To Play");
     }
 
     private void toAboutMenu()
@@ -60,7 +60,7 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    private void exitHow2Play()
+    private void exitHowToPlay()
     {
         SceneManager.LoadScene("Main Menu");
     }
@@ -72,13 +72,8 @@ public class MenuManager : MonoBehaviour
 
     private void enterLevel(int levelNumber)
     {
-        if (levelNumber <= 0)
-            SceneManager.LoadScene("TestScene");  // TODO remove this part
-        else
-        {
-            LevelData.instance.setCurrentLevel(levelNumber);
-            SceneManager.LoadScene("Level " + levelNumber);
-        }
+        LevelData.instance.setCurrentLevel(levelNumber);
+        SceneManager.LoadScene("Level " + levelNumber);
     }
 
     private void exitSettings()

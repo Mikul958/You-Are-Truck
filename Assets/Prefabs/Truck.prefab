@@ -831,7 +831,7 @@ Rigidbody:
   serializedVersion: 5
   m_Mass: 0.5
   m_LinearDamping: 0
-  m_AngularDamping: 10
+  m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -846,7 +846,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &753885537904220585
 MonoBehaviour:
@@ -875,12 +875,12 @@ MonoBehaviour:
   rigidBody: {fileID: 266273360041803184}
   inputManager: {fileID: 753885537904220585}
   wheelAnimator: {fileID: 1832951887439249530}
-  topEngineSpeed: 30
-  boostSpeedCapMultiplier: 3
+  topEngineSpeed: 60
+  boostSpeedCapMultiplier: 1.2
   nailSpeedCapMultiplier: 0.5
-  globalSpeedCap: 80
+  globalSpeedCap: 150
   baseAccel: 20
-  boostAccel: 90
+  boostAccel: 60
   brakeDecel: 50
   neutralDecelMultiplier: 0.98
   externalBodyDecel: 30
