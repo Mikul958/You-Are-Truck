@@ -11,7 +11,7 @@ public class BarrelCollide : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (rigidBody.position.y < 0)
+        if (rigidBody.position.y < -200)
             barrelDestroy.destroy();
     }
 
