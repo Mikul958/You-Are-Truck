@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // Player Reference
+    // Object references
     private GameObject playerTruck;
     private TruckCollide truckCollide;
+    private GameObject audioManager;
     
     // UI Components
     private GameObject canvas;
@@ -32,6 +33,11 @@ public class LevelManager : MonoBehaviour
             truckCollide.onGoalEntered.AddListener(this.attemptLevelWin);
             truckCollide.onTruckDeath.AddListener(this.attemptLevelLose);
         }
+
+        // Find AudioManager and play boss music if on boss level
+        audioManager = GameObject.FindWithTag("AudioManager");
+        if (audioManager != null && LevelData.instance.getCurrentLevelNumber() == 10)
+            audioManager.GetComponent<AudioManager>().playMusic("BossMusic");
         
         // Find canvas and subscribe to UI events
         canvas = GameObject.FindGameObjectWithTag("UI");
@@ -129,6 +135,9 @@ public class LevelManager : MonoBehaviour
     private void exitLevel()
     {
         Time.timeScale = 1f;
+        if (audioManager != null && LevelData.instance.getCurrentLevelNumber() == 10)
+            audioManager.GetComponent<AudioManager>().playMusic("Music");
+
         LevelData.instance.unsetCurrentLevel();
         SceneManager.LoadScene("Level Select");
     }
@@ -142,13 +151,8 @@ public class LevelManager : MonoBehaviour
     private void nextLevel()
     {
         if (LevelData.instance.incrementCurrentLevelOrExit())
-        {
             SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
-        }
         else
-        {
-            LevelData.instance.unsetCurrentLevel();
-            SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
-        }
+            exitLevel();
     }
 }
