@@ -7,11 +7,11 @@ public class BossMove : MonoBehaviour
     
     void Start()
     {
-        
+        // TODO unused :(
     }
 
     void Update()
     {
-        wheelAnimator.updateMovementInfo(10, 1, false);
+        wheelAnimator.updateMovementInfo(0, 0, false);
     }
 }

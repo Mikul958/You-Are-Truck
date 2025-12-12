@@ -15,6 +15,8 @@ public class TruckCollide : MonoBehaviour
     public UnityEvent onGoalEntered;
     [HideInInspector]
     public UnityEvent onTruckDeath;
+    [HideInInspector]
+    public UnityEvent<bool> onCameraTrigger;
 
     // Instance Variables
     private Vector3 workingFloorNormal;
@@ -34,6 +36,8 @@ public class TruckCollide : MonoBehaviour
     private int oilMask;
     private int nailMask;
     private int goalMask;
+    private int bossWeakSpotMask;
+    private int cameraTriggerMask;
 
     private float collisionSoundCooldown = 0.5f;
     private float screechTimer;
@@ -66,6 +70,8 @@ public class TruckCollide : MonoBehaviour
         oilMask = 1 << LayerMask.NameToLayer("Oil");
         nailMask = 1 << LayerMask.NameToLayer("Nail");
         goalMask = 1 << LayerMask.NameToLayer("Goal");
+        bossWeakSpotMask = 1 << LayerMask.NameToLayer("BossWeakSpot");
+        cameraTriggerMask = 1 << LayerMask.NameToLayer("CameraTrigger");
 
         screechTimer = collisionSoundCooldown;
         bonkTimer = collisionSoundCooldown;
@@ -77,7 +83,6 @@ public class TruckCollide : MonoBehaviour
         if (transform.position.y < -200f)
         {
             onTruckDeath.Invoke();
-            truckDestroy.kill();
             return;
         }
         
@@ -113,6 +118,7 @@ public class TruckCollide : MonoBehaviour
         }
         checkForSolidOutOfBounds(collision);
         checkForWall(collision);
+        checkForBossHit(collision);
     }
 
     private bool checkForDrivable(Collision collision)
@@ -215,8 +221,16 @@ public class TruckCollide : MonoBehaviour
             audioManager.updateLocalizedAudioSource(collisionAudio, "Wallhit");
             collisionAudio.Play();
             bonkTimer = collisionSoundCooldown;
+        }
+    }
 
-            Debug.Log("Hit Wall");
+    private void checkForBossHit(Collision collision)
+    {
+        int surfaceLayerMask = 1 << collision.collider.gameObject.layer;
+        if ((surfaceLayerMask & bossWeakSpotMask) > 0)
+        {
+            Vector3 knockbackNormal = collision.GetContact(0).normal;
+            truckMove.applyKnockback(knockbackNormal);
         }
     }
 
@@ -226,6 +240,7 @@ public class TruckCollide : MonoBehaviour
         int layerMask = 1 << trigger.gameObject.layer;
         checkForGoal(layerMask);
         checkForOutOfBounds(layerMask);
+        checkForCameraTrigger(layerMask, true);
     }
 
     void OnTriggerStay(Collider trigger)
@@ -233,6 +248,12 @@ public class TruckCollide : MonoBehaviour
         int layerMask = 1 << trigger.gameObject.layer;
         checkForOil(layerMask);
         checkForNail(layerMask);
+    }
+
+    void OnTriggerExit(Collider trigger)
+    {
+        int layerMask = 1 << trigger.gameObject.layer;
+        checkForCameraTrigger(layerMask, false);
     }
 
     private void checkForGoal(int collisionLayer)
@@ -246,7 +267,6 @@ public class TruckCollide : MonoBehaviour
         if ((collisionLayer & killMask) > 0)
         {
             onTruckDeath.Invoke();
-            truckDestroy.kill();
         }
         else if ((collisionLayer & killExplodeMask) > 0)
         {
@@ -265,5 +285,11 @@ public class TruckCollide : MonoBehaviour
     {
         if ((collisionLayer & nailMask) > 0)
             truckMove.applyNail();
+    }
+
+    private void checkForCameraTrigger(int collisionLayer, bool isEntering)
+    {
+        if ((collisionLayer & cameraTriggerMask) > 0)
+            onCameraTrigger.Invoke(isEntering);
     }
 }

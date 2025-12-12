@@ -19,7 +19,7 @@ public class BossAttack : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isWaiting = true;
+        isWaiting = false;
         timer = 0f;
     }
 

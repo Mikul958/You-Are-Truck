@@ -46,6 +46,7 @@ public class TruckMove : MonoBehaviour
     public float groundAlignmentSpeed;  // How fast the vehicle attempts to realign itself while touching the ground (deg/sec)
     public float maxStickyRoadSpeed;    // Downward speed applied when sticky road is active, applied instantaneously, not dependent on time
     public float stickyRoadDistance;    // Max distance for a sticky road raycast hit
+    public float bossKnockbackStrength; // Knockback applied after hitting boss weak spot
 
     [Header("Airtime Effects")]
     public float airtimeThreshold;       // After airtime crosses this threshold, jumps are ignored and handling is significantly reduced (s)
@@ -520,5 +521,11 @@ public class TruckMove : MonoBehaviour
     public float getAirtime()
     {
         return airtime;  // For collision audio
+    }
+
+    public void applyKnockback(Vector3 collisionNormal)
+    {
+        Vector3 knockback = bossKnockbackStrength * collisionNormal;        
+        externalVelocity += knockback;
     }
 }

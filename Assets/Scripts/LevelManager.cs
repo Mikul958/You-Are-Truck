@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
     // Object references
     private GameObject playerTruck;
     private TruckCollide truckCollide;
+    private GameObject bossTruck;
+    private BossCollide bossCollide;
     private GameObject audioManager;
     
     // UI Components
@@ -33,6 +35,13 @@ public class LevelManager : MonoBehaviour
             truckCollide.onGoalEntered.AddListener(this.attemptLevelWin);
             truckCollide.onTruckDeath.AddListener(this.attemptLevelLose);
         }
+
+        // Find boss and subscribe to boss death event
+        bossTruck = GameObject.FindGameObjectWithTag("Boss");
+        if (bossTruck != null)
+            bossCollide = bossTruck.GetComponentInChildren<BossCollide>();
+        if (bossCollide != null)
+            bossCollide.onBossDeath.AddListener(this.attemptLevelWin);
 
         // Find AudioManager and play boss music if on boss level
         audioManager = GameObject.FindWithTag("AudioManager");
