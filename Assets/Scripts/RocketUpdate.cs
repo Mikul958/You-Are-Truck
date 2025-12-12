@@ -94,7 +94,10 @@ public class RocketUpdate : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (isCollisionCounted(collision))
+        {
+            transform.position = collision.GetContact(0).point;  // Workaround to generate explosion at point of collision instead of making it huge
             destroy.destroyExplode();
+        }
     }
 
     private bool isCollisionCounted(Collision collision)
