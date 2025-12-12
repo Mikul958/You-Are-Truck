@@ -9,9 +9,9 @@ public class GameUI : MonoBehaviour
     [HideInInspector]
     public UnityEvent onSettingsClicked;
     [HideInInspector]
-    public UnityEvent onHow2Play;
+    public UnityEvent onHowToPlayClicked;
     [HideInInspector]
-    public UnityEvent onAboutMenu;
+    public UnityEvent onAboutMenuClicked;
     [HideInInspector]
 
     public UnityEvent onExitClicked;
@@ -26,15 +26,15 @@ public class GameUI : MonoBehaviour
         audioManager.playSoundEffect(buttonSound);
         onSettingsClicked.Invoke();
     }
-    public void clickHow2Play()
+    public void clickHowToPlay()
     {
         audioManager.playSoundEffect(buttonSound);
-        onHow2Play.Invoke();
+        onHowToPlayClicked.Invoke();
     }
     public void clickAboutMenu()
     {
         audioManager.playSoundEffect(buttonSound);
-        onAboutMenu.Invoke();
+        onAboutMenuClicked.Invoke();
     }
     public void clickExit()
     {
@@ -42,18 +42,16 @@ public class GameUI : MonoBehaviour
         onExitClicked.Invoke();
     }
 
-    // How 2 Play
-    
+    // How To Play
     [HideInInspector]
-    public UnityEvent onHow2PlayExitClicked;
-    public void clickHow2PlayExit()
+    public UnityEvent onHowToPlayExitClicked;
+    public void clickHowToPlayExit()
     {
         audioManager.playSoundEffect(buttonSound);
-        onHow2PlayExitClicked.Invoke();
+        onHowToPlayExitClicked.Invoke();
     }
 
     // About Menu
-    
     [HideInInspector]
     public UnityEvent onAboutMenuExitClicked;
     public void clickAboutMenuExit()
