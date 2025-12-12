@@ -9,6 +9,11 @@ public class GameUI : MonoBehaviour
     [HideInInspector]
     public UnityEvent onSettingsClicked;
     [HideInInspector]
+    public UnityEvent onHow2Play;
+    [HideInInspector]
+    public UnityEvent onAboutMenu;
+    [HideInInspector]
+
     public UnityEvent onExitClicked;
 
     public void clickPlay()
@@ -21,10 +26,40 @@ public class GameUI : MonoBehaviour
         audioManager.playSoundEffect(buttonSound);
         onSettingsClicked.Invoke();
     }
+    public void clickHow2Play()
+    {
+        audioManager.playSoundEffect(buttonSound);
+        onHow2Play.Invoke();
+    }
+    public void clickAboutMenu()
+    {
+        audioManager.playSoundEffect(buttonSound);
+        onAboutMenu.Invoke();
+    }
     public void clickExit()
     {
         audioManager.playSoundEffect(buttonSound);
         onExitClicked.Invoke();
+    }
+
+    // How 2 Play
+    
+    [HideInInspector]
+    public UnityEvent onHow2PlayExitClicked;
+    public void clickHow2PlayExit()
+    {
+        audioManager.playSoundEffect(buttonSound);
+        onHow2PlayExitClicked.Invoke();
+    }
+
+    // About Menu
+    
+    [HideInInspector]
+    public UnityEvent onAboutMenuExitClicked;
+    public void clickAboutMenuExit()
+    {
+        audioManager.playSoundEffect(buttonSound);
+        onAboutMenuExitClicked.Invoke();
     }
 
     // Level Select & Settings

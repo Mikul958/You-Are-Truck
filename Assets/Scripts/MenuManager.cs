@@ -20,10 +20,14 @@ public class MenuManager : MonoBehaviour
         // Subscribe to necessary UI events
         uiScript.onLevelSelectClicked.AddListener(this.toLevelSelect);
         uiScript.onSettingsClicked.AddListener(this.toSettings);
+        uiScript.onHow2Play.AddListener(this.toHow2Play);
+        uiScript.onAboutMenu.AddListener(this.toAboutMenu);
         uiScript.onExitClicked.AddListener(this.exitGame);
         uiScript.onLevelSelectExitClicked.AddListener(this.exitLevelSelect);
         uiScript.onLevelClicked.AddListener(this.enterLevel);
         uiScript.onSettingsExitClicked.AddListener(this.exitSettings);
+        uiScript.onHow2PlayExitClicked.AddListener(this.exitHow2Play);
+        uiScript.onAboutMenuExitClicked.AddListener(this.exitAboutMenu);
 ;    }
 
     private void toLevelSelect()
@@ -36,12 +40,32 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Settings");
     }
 
+    private void toHow2Play()
+    {
+        SceneManager.LoadScene("How 2 Play");
+    }
+
+    private void toAboutMenu()
+    {
+        SceneManager.LoadScene("About Menu");
+    }
+
     private void exitGame()
     {
         Application.Quit();
     }
 
     private void exitLevelSelect()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    private void exitHow2Play()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    private void exitAboutMenu()
     {
         SceneManager.LoadScene("Main Menu");
     }
