@@ -2,24 +2,22 @@ using UnityEngine;
 
 public class ExplosionUpdate : MonoBehaviour
 {
+    // Referenced components
+    public SphereCollider collision;
+    
     // Constants, set in game engine
-    public float explosionRadius;
-    public float explosionDuration;
+    public float collisionDuration;
+    public float visualDuration;
 
     // Instance variables
-    private float timer;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        timer = explosionDuration;
-    }
+    private float timer = 0;
 
-    // Update is called once per frame
     void Update()
     {
-        timer -= Time.fixedDeltaTime;
-        if (timer <= 0f)
+        timer += Time.fixedDeltaTime;
+        if (timer > collisionDuration)
+            collision.enabled = false;
+        if (timer > visualDuration)
             Destroy(gameObject);
     }
 }
