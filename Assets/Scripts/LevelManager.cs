@@ -1,3 +1,5 @@
+using System.Collections;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -97,6 +99,13 @@ public class LevelManager : MonoBehaviour
     {
         if (levelEnded)
             return;
+        
+        StartCoroutine(loseCoroutine(0.5f));
+    }
+
+    private IEnumerator loseCoroutine(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
         
         backgroundDim.SetActive(true);
         loseMenu.SetActive(true);
