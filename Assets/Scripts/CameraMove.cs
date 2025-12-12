@@ -37,6 +37,7 @@ public class CameraMove : MonoBehaviour
             truckMove = playerTruck.GetComponent<TruckMove>();
             truckCollide = playerTruck.GetComponent<TruckCollide>();
             truckCollide.onTruckDeath.AddListener(this.handleTruckDeath);
+            truckCollide.onCameraTrigger.AddListener(this.setUseUpDirection);
             
             targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection(), truckMove.getFloorNormal()) * Quaternion.Euler(targetAngleOffset);
             transform.rotation = targetRotation;
