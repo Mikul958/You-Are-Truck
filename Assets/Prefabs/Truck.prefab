@@ -886,7 +886,7 @@ MonoBehaviour:
   externalBodyDecel: 30
   externalWheelDecel: 70
   externalDecelMultiplier: 0.999
-  platformAccel: 30
+  platformAccel: 50
   minRotationSpeed: 15
   maxRotationSpeed: 75
   minTurnThreshold: 2

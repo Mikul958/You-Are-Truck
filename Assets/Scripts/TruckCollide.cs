@@ -148,7 +148,9 @@ public class TruckCollide : MonoBehaviour
         // Get the surface normal for each contact point and add it to total for this collision
         int contactPoints = 0;
         Vector3 combinedNormal = Vector3.zero;
-        foreach (ContactPoint contactPoint in collision.contacts)  // TODO move contacts to GetContacts
+        ContactPoint[] contacts = new ContactPoint[collision.contactCount];
+        collision.GetContacts(contacts);
+        foreach (ContactPoint contactPoint in contacts)
         {
             Ray ray = new Ray(contactPoint.point + contactPoint.normal * 0.1f, -contactPoint.normal);
             if (Physics.Raycast(ray, out RaycastHit hit, 0.1f, (roadMask | stickyRoadMask | boostPanelMask)))

@@ -25,6 +25,7 @@ public class CameraMove : MonoBehaviour
     // Instance variables
     private bool disabled;
     private bool truckAlive;
+    private bool useUpDirection;  // Whether or not to factor in an up direction, enabled with triggers encapsulating e.g. inversions
     private Vector3 targetPosition = Vector3.zero;
     private Quaternion targetRotation = Quaternion.identity;
     
@@ -44,6 +45,7 @@ public class CameraMove : MonoBehaviour
 
             disabled = false;
             truckAlive = true;
+            useUpDirection = false;
         }
         else
         {
@@ -75,7 +77,10 @@ public class CameraMove : MonoBehaviour
         float rotSmooth  = Mathf.Lerp(minRotSmooth, maxRotSmooth, speed / maxSpeed);
 
         // Apply smoothed rotation change to camera
-        targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
+        if (useUpDirection)
+            targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection(), truckMove.getFloorNormal()) * Quaternion.Euler(targetAngleOffset);
+        else
+            targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSmooth * Time.deltaTime);
 
         // Apply smoothed position change to camera
@@ -92,5 +97,10 @@ public class CameraMove : MonoBehaviour
     private void handleTruckDeath()
     {
         truckAlive = false;
+    }
+
+    private void setUseUpDirection(bool enabled)
+    {
+        useUpDirection = enabled;
     }
 }
