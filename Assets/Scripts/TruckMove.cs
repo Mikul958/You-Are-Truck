@@ -83,6 +83,7 @@ public class TruckMove : MonoBehaviour
     private float boostTimer;
     private float oilTimer;
     private float nailTimer;
+    private float engineRevTimer;
 
     // Additional private constants
     private const float zeroEngineSpeed = 0.001f;
@@ -106,6 +107,7 @@ public class TruckMove : MonoBehaviour
         GameObject audioManagerObject = GameObject.FindGameObjectWithTag("AudioManager");
         if (audioManagerObject != null)
             audioManager = audioManagerObject.GetComponent<AudioManager>();
+        
         idleAudio = gameObject.AddComponent<AudioSource>();
         idleAudio.playOnAwake = false;
         idleAudio.spatialBlend = 1f;
@@ -117,16 +119,17 @@ public class TruckMove : MonoBehaviour
         engineAudio.playOnAwake = false;
         engineAudio.spatialBlend = 1f;
         engineAudio.rolloffMode = AudioRolloffMode.Logarithmic;
+        audioManager.updateLocalizedAudioSource(engineAudio, "EngineRev");
         
         facingDirection = rigidBody.rotation * Vector3.forward;
         floorNormal = rigidBody.rotation * Vector3.up;
         baseEngineDirection = facingDirection;
         realEngineDirection = baseEngineDirection;
-        engineSpeed = 0;
+        engineSpeed = 0f;
         speedSign = 0;
-        slipTurnOffset = 0;
+        slipTurnOffset = 0f;
         externalVelocity = Vector3.zero;
-        externalSpeed = 0;
+        externalSpeed = 0f;
         appliedVelocity = Vector3.zero;
         physicsDelta = Vector3.zero;
 
@@ -135,9 +138,10 @@ public class TruckMove : MonoBehaviour
         airtime = airtimeThreshold;
         airtimeWheels = airtimeThreshold;
         stickyRoad = false;
-        boostTimer = 0;
-        oilTimer = 0;
-        nailTimer = 0;
+        boostTimer = 0f;
+        oilTimer = 0f;
+        nailTimer = 0f;
+        engineRevTimer = 0f;
 
         rigidBody.linearVelocity = appliedVelocity;
         rigidBody.sleepThreshold = 0f;
@@ -422,16 +426,11 @@ public class TruckMove : MonoBehaviour
 
     private void updateEngineAudio()
     {
-        int forwardInputSign = inputManager.getForwardInputSign();
-        if (forwardInputSign == 0)
-            audioManager.updateLocalizedAudioSource(engineAudio, "TODO BLANK");
-        else if (forwardInputSign == speedSign)
-            audioManager.updateLocalizedAudioSource(engineAudio, "EngineRev");
-        else if (forwardInputSign != speedSign && airtime == 0)
-            audioManager.updateLocalizedAudioSource(engineAudio, "Brake");
-        
-        // TODO Find some way to check if sound has been updated or not, only play if it has
-        // TODO play
+        if (engineRevTimer == 0f && !engineAudio.isPlaying && Math.Abs(engineSpeed) < 0.25 * topEngineSpeed && inputManager.getForwardInputSign() != 0)
+        {
+            engineAudio.Play();
+            engineRevTimer = 0.35f;
+        }
     }
 
     private void updateTimersAndEngineCap()
@@ -440,20 +439,25 @@ public class TruckMove : MonoBehaviour
         airtime += Time.fixedDeltaTime;
         airtimeWheels += Time.fixedDeltaTime;
         boostTimer -= Time.fixedDeltaTime;
-        if (boostTimer < 0)
-            boostTimer = 0;
+        if (boostTimer < 0f)
+            boostTimer = 0f;
         oilTimer -= Time.fixedDeltaTime;
-        if (oilTimer < 0)
-            oilTimer = 0;
+        if (oilTimer < 0f)
+            oilTimer = 0f;
         nailTimer -= Time.fixedDeltaTime;
-        if (nailTimer < 0)
-            nailTimer = 0;
+        if (nailTimer < 0f)
+            nailTimer = 0f;
+        engineRevTimer -= Time.fixedDeltaTime;
+        if (engineRevTimer < 0f)
+            engineRevTimer = 0f;
+        if (engineRevTimer > 0 && (engineSpeed > 0.25f * topEngineSpeed || inputManager.getForwardInputSign() != 0))
+            engineRevTimer = 0.35f;
 
         // Check state and update engine speed cap
         currentEngineCap = topEngineSpeed;
-        if (boostTimer > 0)
+        if (boostTimer > 0f)
             currentEngineCap *= boostSpeedCapMultiplier;
-        if (nailTimer > 0)
+        if (nailTimer > 0f)
             currentEngineCap *= nailSpeedCapMultiplier;
     }
 

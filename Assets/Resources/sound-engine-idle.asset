@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffect
   soundName: EngineIdle
   clip: {fileID: 8300000, guid: 6a05544231950764c9223b0490323562, type: 3}
-  volume: 2
+  volume: 1.5
   pitch: 1
   loop: 1
