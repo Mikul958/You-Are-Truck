@@ -36,18 +36,8 @@ public class LevelData : ScriptableObject
         get
         {
             if (_instance == null)
-                _instance = new LevelData();
+                _instance = CreateInstance<LevelData>();  // Create a level data instance with default values for all levels
             return _instance;
-        }
-    }
-
-    // Generates default level data before attempting file load so that default data can be saved if levels.json does not exist
-    private LevelData()
-    {
-        foreach (Level level in levels)
-        {
-            level.isComplete = false;
-            level.bestTime = -1;
         }
     }
     
