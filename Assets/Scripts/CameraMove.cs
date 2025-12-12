@@ -5,7 +5,8 @@ public class CameraMove : MonoBehaviour
 {
     // Referenced components
     private GameObject playerTruck;
-    private TruckMove truckMove;  // Shorthand reference for above's TruckMove
+    private TruckMove truckMove;
+    private TruckCollide truckCollide;
 
     // Constants, set in game editor
     public float targetDistance;
@@ -22,41 +23,74 @@ public class CameraMove : MonoBehaviour
 
 
     // Instance variables
-    private bool canMove;
+    private bool disabled;
+    private bool truckAlive;
+    private Vector3 targetPosition = Vector3.zero;
+    private Quaternion targetRotation = Quaternion.identity;
     
     void Start()
     {
         playerTruck = GameObject.FindWithTag("Player");
-        if (playerTruck == null)
+        if (playerTruck != null)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(90, 0, 0));
-            transform.position = new Vector3(0, 10, 0);
-            canMove = false;
+            truckMove = playerTruck.GetComponent<TruckMove>();
+            truckCollide = playerTruck.GetComponent<TruckCollide>();
+            truckCollide.onTruckDeath.AddListener(this.handleTruckDeath);
+            
+            targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection(), truckMove.getFloorNormal()) * Quaternion.Euler(targetAngleOffset);
+            transform.rotation = targetRotation;
+            targetPosition = playerTruck.transform.position - transform.forward * targetDistance + transform.up * verticalOffset;
+            transform.position = targetPosition;
+
+            disabled = false;
+            truckAlive = true;
         }
         else
         {
-            truckMove = playerTruck.GetComponent<TruckMove>();
-            transform.rotation = Quaternion.LookRotation(truckMove.getEngineDirection(), truckMove.getFloorNormal()) * Quaternion.Euler(targetAngleOffset);
-            transform.position = playerTruck.transform.position - transform.forward * targetDistance + transform.up * verticalOffset;
-            canMove = true;
+            targetRotation = Quaternion.Euler(new Vector3(90, 0, 0));
+            transform.rotation = targetRotation;
+            targetPosition = new Vector3(0, 10, 0);
+            transform.position = targetPosition;
+
+            disabled = true;
+            truckAlive = false;
         }
     }
     void Update()
     {
-        if (!canMove || playerTruck == null)
+        if (disabled)
             return;
         
+        if (truckAlive)
+            updateTruckAlive();
+        else
+            updateTruckDead();
+    }
+
+    private void updateTruckAlive()
+    {
         // Get smoothing values based on current speed
         float speed = playerTruck.GetComponent<Rigidbody>().linearVelocity.magnitude;
         float moveSmooth = Mathf.Lerp(minMoveSmooth, maxMoveSmooth, speed / maxSpeed);
         float rotSmooth  = Mathf.Lerp(minRotSmooth, maxRotSmooth, speed / maxSpeed);
 
         // Apply smoothed rotation change to camera
-        Quaternion targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
+        targetRotation = Quaternion.LookRotation(truckMove.getEngineDirection()) * Quaternion.Euler(targetAngleOffset);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSmooth * Time.deltaTime);
 
         // Apply smoothed position change to camera
-        Vector3 targetPosition = playerTruck.transform.position - targetRotation * Vector3.forward * targetDistance + targetRotation * Vector3.up * verticalOffset;
+        targetPosition = playerTruck.transform.position - targetRotation * Vector3.forward * targetDistance + targetRotation * Vector3.up * verticalOffset;
         transform.position = Vector3.Lerp(transform.position, targetPosition, moveSmooth * Time.deltaTime);
+    }
+
+    private void updateTruckDead()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 0.05f * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f * Time.deltaTime);
+    }
+
+    private void handleTruckDeath()
+    {
+        truckAlive = false;
     }
 }

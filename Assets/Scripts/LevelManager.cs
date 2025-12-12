@@ -90,7 +90,7 @@ public class LevelManager : MonoBehaviour
         winMenu.SetActive(true);
         levelEnded = true;
 
-        // TODO update level data with win when created
+        LevelData.instance.updateCurrentLevelData(true, (int)time);
     }
 
     private void attemptLevelLose()
@@ -102,7 +102,6 @@ public class LevelManager : MonoBehaviour
         loseMenu.SetActive(true);
         levelEnded = true;
     }
-
 
     private void pauseLevel()
     {
@@ -121,7 +120,7 @@ public class LevelManager : MonoBehaviour
     private void exitLevel()
     {
         Time.timeScale = 1f;
-        // TODO save level info through level data when it's created
+        LevelData.instance.unsetCurrentLevel();
         SceneManager.LoadScene("Level Select");
     }
 
@@ -133,6 +132,14 @@ public class LevelManager : MonoBehaviour
 
     private void nextLevel()
     {
-        exitLevel();  // TODO need to have level data / saving set up for this to work
+        if (LevelData.instance.incrementCurrentLevelOrExit())
+        {
+            SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
+        }
+        else
+        {
+            LevelData.instance.unsetCurrentLevel();
+            SceneManager.LoadScene("Level " + LevelData.instance.getCurrentLevelNumber());
+        }
     }
 }

@@ -119,6 +119,435 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &18113953 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 482130310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &25638341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -42.53495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -80.031
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &37827240 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1381105251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &51197989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 908373912}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &58913116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -48.960407
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211777
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -125.237206
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &62541194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -49.23652
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.21179
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -86.21419
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &80915796 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 200229565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &83047909
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -40.229664
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.212435
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -37.73835
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &86195115
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -48.575745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211792
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -74.75065
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &105908716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.350248
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.212593
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -35.6069
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &110451425
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.32784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -380.90588
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &125505200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1234591782}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &148067917 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1896307422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &193243516
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +675,202 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &200229565
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.045807
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622872
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -502.7161
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &214543999
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 128220354521714899}
+    m_Modifications:
+    - target: {fileID: 242196603248816775, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 242196603248816775, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: moveSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 242196603248816775, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: amplitude.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 242196603248816775, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: amplitude.y
+      value: 14.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 242196603248816775, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: amplitude.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -51.683327
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -159.14748
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8759487892615268356, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+      propertyPath: m_Name
+      value: Crane Platform
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+--- !u!1001 &222262333
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -78.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622862
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -390.85065
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &230002586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 708926645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &234914562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,6 +928,130 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87fd2e95339044d48bd10d2fbdf3bcce, type: 3}
+--- !u!4 &274591912 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1077450578}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &315363435
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -51.83744
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211782
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -80.179665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &340259703
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.441833
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211779
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -124.07603
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (16)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &354962339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1438389737}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &412217810
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +1105,73 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3000, y: 1, z: 3000}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &420257041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420257042}
+  m_Layer: 0
+  m_Name: Barrels
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420257042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420257041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 982383563}
+  - {fileID: 718972581}
+  - {fileID: 1972093133}
+  - {fileID: 1744341834}
+  - {fileID: 1111121851}
+  - {fileID: 125505200}
+  - {fileID: 148067917}
+  - {fileID: 1535099664}
+  - {fileID: 745356608}
+  - {fileID: 890721816}
+  - {fileID: 1597082062}
+  - {fileID: 1934661300}
+  - {fileID: 613924501}
+  - {fileID: 51197989}
+  - {fileID: 1420762185}
+  - {fileID: 1882514586}
+  - {fileID: 811793403}
+  - {fileID: 354962339}
+  - {fileID: 963885471}
+  - {fileID: 678236001}
+  - {fileID: 851881578}
+  - {fileID: 274591912}
+  - {fileID: 230002586}
+  - {fileID: 80915796}
+  - {fileID: 18113953}
+  - {fileID: 1903006468}
+  - {fileID: 2081336349}
+  - {fileID: 1797118939}
+  - {fileID: 1614940544}
+  - {fileID: 1335385793}
+  - {fileID: 574010956}
+  - {fileID: 37827240}
+  - {fileID: 1533969272}
+  - {fileID: 683196259}
+  - {fileID: 1661500392}
+  - {fileID: 2010502242}
+  m_Father: {fileID: 128220354521714899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &451747070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,11 +1224,137 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5191461533769018067, guid: 04a9c3b3cec575e4a8b73c2683c085ac, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04a9c3b3cec575e4a8b73c2683c085ac, type: 3}
+--- !u!1001 &460501956
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548086303}
+    m_Modifications:
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.868511
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.10626
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -535.10583
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.30070582
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.953717
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 145
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372822076190041258, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_Name
+      value: Oil Slick (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+--- !u!1001 &469272885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -131.21289
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622859
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -348.2207
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (14)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
 --- !u!1001 &473820116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,6 +1412,120 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16616a9c00fa033488f01607ec5c9df5, type: 3}
+--- !u!1001 &482130310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -60.876724
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -518.64215
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &500383328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.23505
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.21197
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -48.86252
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (12)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
 --- !u!1 &544908155
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +1605,595 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &574010956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 222262333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &613924501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 500383328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &616294366
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -29.66122
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211775
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -123.21086
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (18)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &625306961
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548086303}
+    m_Modifications:
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -81.66487
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.106268
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -486.5356
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7660445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6427876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372822076190041258, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_Name
+      value: Oil Slick (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+--- !u!4 &678236001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1506189887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &681276651
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548086303}
+    m_Modifications:
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.6648102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.106262
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -421.27094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8433915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.53729963
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372822076190041258, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_Name
+      value: Oil Slick (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+--- !u!4 &683196259 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1380122729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &708926645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.377013
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622879
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -514.36115
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &718972581 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 897876116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &745356608 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 86195115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &754507106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -64.287766
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622883
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -466.06073
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &799673557 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1758566385105152415, guid: d066e7b4de2be0f48b62c182949f19ce, type: 3}
+  m_PrefabInstance: {fileID: 214543999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &811793403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 340259703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &851881578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 967931482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &890721816 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 25638341}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &897876116
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.64635
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.21287
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.772026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &908373912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.787445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211906
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -52.540455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &916732944
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.215437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622859
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -406.94495
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &963885471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 616294366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &967931482
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.226517
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622876
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -582.2756
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &982383563 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1201979644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1017243814
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -606,6 +2251,306 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c112167040386f48b624e2c104c1166, type: 3}
+--- !u!1001 &1077450578
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6856037
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622861
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -551.82117
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &1087125605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.290514
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622848
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -437.64267
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1111121851 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1433724124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1201773384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+  m_PrefabInstance: {fileID: 1721127554}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1201979644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32.93425
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.21217
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42.57441
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &1203076539
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -398.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1211769212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+  m_PrefabInstance: {fileID: 460501956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1234591782
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -38.938274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -72.160324
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
 --- !u!1001 &1314457888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,6 +2608,301 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f29d3120a8acede4a94df0cb3a3aa7b1, type: 3}
+--- !u!1001 &1332305423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.293915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211937
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.71656
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1335385793 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1203076539}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1380122729
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -129.4085
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622858
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -392.4276
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (13)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &1381105251
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -76.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622866
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -382.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1420762185 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 58913116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1433724124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -36.664627
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211779
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -82.9134
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!1001 &1438389737
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.43277
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -126.733406
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (17)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
 --- !u!1001 &1441672753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -760,6 +3000,537 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 955993c761899c6439a84a88924c5ef7, type: 3}
+--- !u!1001 &1506189887
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.923298
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -121.715546
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (19)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1533969272 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 110451425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1535099664 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 62541194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1548086302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548086303}
+  m_Layer: 0
+  m_Name: Oil
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548086303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548086302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1201773384}
+  - {fileID: 1577670661}
+  - {fileID: 1824055408}
+  - {fileID: 1748924478}
+  - {fileID: 1211769212}
+  m_Father: {fileID: 128220354521714899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1577670661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+  m_PrefabInstance: {fileID: 1752441051}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1597082062 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 315363435}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1614940544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1801156094}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1661500392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 469272885}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1721127554
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548086303}
+    m_Modifications:
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -45.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.106274
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372822076190041258, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_Name
+      value: Oil Slick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+--- !u!4 &1744341834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 83047909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1748924478 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+  m_PrefabInstance: {fileID: 625306961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1752441051
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1548086303}
+    m_Modifications:
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -133.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.106266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -362.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9659259
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.258819
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6372822076190041258, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+      propertyPath: m_Name
+      value: Oil Slick (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+--- !u!1001 &1756861668
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -86.205536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622862
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -352.6898
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1797118939 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 916732944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1801156094
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -86.70697
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.622864
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -404.5002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1824055408 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2508640526065879114, guid: 763268045d9be4549a34d1fc651174dc, type: 3}
+  m_PrefabInstance: {fileID: 681276651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1882514586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 2021424282}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1896307422
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.536938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211777
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -91.51368
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &1903006468 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 754507106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1934661300 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 105908716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1972093133 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1332305423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2010502242 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1756861668}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2021424282
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 420257042}
+    m_Modifications:
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.131752
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.211784
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -127.076195
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3943229531495061907, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+      propertyPath: m_Name
+      value: Explosive Barrel (15)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+--- !u!4 &2081336349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2614803486139720484, guid: 094575d8a94dc0f409b974f269f186a5, type: 3}
+  m_PrefabInstance: {fileID: 1087125605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2120959138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -832,6 +3603,9 @@ Transform:
   m_Children:
   - {fileID: 7673314578710937365}
   - {fileID: 3241018006493320201}
+  - {fileID: 420257042}
+  - {fileID: 799673557}
+  - {fileID: 1548086303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586698133152906078
